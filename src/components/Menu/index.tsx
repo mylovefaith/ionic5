@@ -21,7 +21,7 @@ interface MenuProps extends RouteComponentProps {
 interface AppPage {
   title: string;
   path: string;
-  iosIcon: string; 
+  iosIcon: string;
   mdIcon: string;
 }
 
@@ -33,17 +33,21 @@ const appPages: AppPage[] = [
 const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
-
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonListHeader>Menu</IonListHeader>
+          <IonNote>Pages</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={selectedPage === appPage.title ? 'selected' : ''} routerLink={appPage.path} routerDirection="none" lines="none" detail={false}>
+                <IonItem
+                  className={selectedPage === appPage.title ? 'selected' : ''}
+                  routerLink={appPage.path}
+                  routerDirection="none"
+                  lines="none"
+                  detail={false}>
                   <IonIcon slot="start" icon={appPage.iosIcon} />
                   <IonLabel>{appPage.title}</IonLabel>
                 </IonItem>

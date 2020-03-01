@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router';
 
 import './styles.scss';
 
-interface OwnProps extends RouteComponentProps<{ name: string; }> {};
+interface OwnProps extends RouteComponentProps<{ name: string }> {}
 
 const LoginScreen: React.FC<OwnProps> = () => {
   return (

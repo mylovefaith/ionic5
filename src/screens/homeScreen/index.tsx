@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
-interface OwnProps {};
+interface OwnProps {}
 
 const HomeScreen: React.FC<OwnProps> = () => {
   return (

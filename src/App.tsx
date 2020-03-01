@@ -1,9 +1,12 @@
 import Menu from './components/Menu';
 import { HomeScreen, LoginScreen } from './screens';
 import React, { useState } from 'react';
+import { Provider } from 'react-redux';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
+
+import store from './business/store';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,22 +28,23 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 const App: React.FC = () => {
-
   const [selectedPage, setSelectedPage] = useState('');
 
   return (
-    <IonApp>
-      <IonReactRouter>
-        <IonSplitPane contentId="main">
-          <Menu selectedPage={selectedPage} />
-          <IonRouterOutlet id="main">
-            <Route path="/page/home" render={HomeScreen} exact={true} />
-            <Route path="/page/login" render={LoginScreen} exact={true} />
-            <Route path="/" render={() => <Redirect to="/page/home" />} exact={true} />
-          </IonRouterOutlet>
-        </IonSplitPane>
-      </IonReactRouter>
-    </IonApp>
+    <Provider store={store}>
+      <IonApp>
+        <IonReactRouter>
+          <IonSplitPane contentId="main">
+            <Menu selectedPage={selectedPage} />
+            <IonRouterOutlet id="main">
+              <Route path="/page/home" render={HomeScreen} exact={true} />
+              <Route path="/page/login" render={LoginScreen} exact={true} />
+              <Route path="/" render={() => <Redirect to="/page/home" />} exact={true} />
+            </IonRouterOutlet>
+          </IonSplitPane>
+        </IonReactRouter>
+      </IonApp>
+    </Provider>
   );
 };
 
