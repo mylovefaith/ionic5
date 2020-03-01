@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { home, person, bookmark } from 'ionicons/icons';
+import { homeOutline, homeSharp, personOutline, personSharp, bookmark } from 'ionicons/icons';
 import './styles.scss';
 
 interface MenuProps extends RouteComponentProps {
@@ -21,12 +21,13 @@ interface MenuProps extends RouteComponentProps {
 interface AppPage {
   title: string;
   path: string;
-  icon: { ios: string; md: string };
+  iosIcon: string; 
+  mdIcon: string;
 }
 
 const appPages: AppPage[] = [
-  { title: 'Home', path: '/page/home', icon: home },
-  { title: 'Login', path: '/page/login', icon: person },
+  { title: 'Home', path: '/page/home', iosIcon: homeOutline, mdIcon: homeSharp },
+  { title: 'Login', path: '/page/login', iosIcon: personOutline, mdIcon: personSharp },
 ];
 
 const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
@@ -43,7 +44,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
                 <IonItem className={selectedPage === appPage.title ? 'selected' : ''} routerLink={appPage.path} routerDirection="none" lines="none" detail={false}>
-                  <IonIcon slot="start" icon={appPage.icon} />
+                  <IonIcon slot="start" icon={appPage.iosIcon} />
                   <IonLabel>{appPage.title}</IonLabel>
                 </IonItem>
               </IonMenuToggle>
