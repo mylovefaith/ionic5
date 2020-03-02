@@ -7,6 +7,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
 import store from './business/store';
+import AppInit from './AppInit';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,16 +34,18 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <IonApp>
-        <IonReactRouter>
-          <IonSplitPane contentId="main">
-            <Menu selectedPage={selectedPage} />
-            <IonRouterOutlet id="main">
-              <Route path="/page/home" render={HomeScreen} exact={true} />
-              <Route path="/page/login" render={LoginScreen} exact={true} />
-              <Route path="/" render={() => <Redirect to="/page/home" />} exact={true} />
-            </IonRouterOutlet>
-          </IonSplitPane>
-        </IonReactRouter>
+        <AppInit>
+          <IonReactRouter>
+            <IonSplitPane contentId="main">
+              <Menu selectedPage={selectedPage} />
+              <IonRouterOutlet id="main">
+                <Route path="/page/home" render={HomeScreen} exact={true} />
+                <Route path="/page/login" render={LoginScreen} exact={true} />
+                <Route path="/" render={() => <Redirect to="/page/home" />} exact={true} />
+              </IonRouterOutlet>
+            </IonSplitPane>
+          </IonReactRouter>
+        </AppInit>
       </IonApp>
     </Provider>
   );

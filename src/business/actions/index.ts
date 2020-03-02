@@ -1,3 +1,5 @@
 import * as t from './action.types';
 
-export { t };
+import loadApp from './loadApp';
+
+export { loadApp, t };

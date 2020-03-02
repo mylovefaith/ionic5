@@ -15,12 +15,12 @@ export const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case t.LOAD_APP: 
+    case t.LOAD_STORAGE: 
       return {
         ...state,
         localStorage: action.payload
       }
-    case t.GET_STORE:
+    case t.FETCH_STORE:
       return {
         ...state,
         store: action.payload

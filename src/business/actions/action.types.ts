@@ -1,4 +1,4 @@
-export const LOAD_APP = 'LOAD_APP';
+export const LOAD_STORAGE = 'LOAD_STORAGE';
+export const FETCH_STORE = 'FETCH_STORE';
 
-export const GET_STORE = 'GET_STORE';
-export const GET_USER = 'GET_USER';
+export const FETCH_USER = 'FETCH_USER';
