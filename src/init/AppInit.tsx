@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Store } from './business/models';
+import { Store } from '../business/models';
 
-import { loadApp as loadAppAction } from './business/actions';
+import { loadApp as loadAppAction } from '../business/actions';
 
 interface AppInitProps {
   children: Node;
@@ -10,6 +10,7 @@ interface AppInitProps {
   loadApp: Function;
 }
 
+/* Perform necessary action when the app is loaded before UI gets shown */
 const AppInit: React.FC<AppInitProps> = ({ children, loadApp, store }) => {
   useEffect(() => {
     loadApp();
