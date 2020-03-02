@@ -1,5 +1,5 @@
-import { Members, Member } from './member';
+import { Store } from './store';
 import { User } from './user';
 
 // @ts-ignore 
-export { Members, Member, User };
+export { Store, User };

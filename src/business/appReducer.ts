@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { UserReducer, MemberReducer } from './reducers';
+import { globalReducer } from './reducers';
 
-const appReducer = combineReducers({ UserReducer, MemberReducer });
+const appReducer = combineReducers({ global: globalReducer });
 
 export default appReducer;

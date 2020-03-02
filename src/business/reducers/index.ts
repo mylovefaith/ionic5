@@ -1,4 +1,3 @@
-import MemberReducer from './member';
-import UserReducer from './user';
+import globalReducer from './global';
 
-export { MemberReducer, UserReducer };
+export { globalReducer };
