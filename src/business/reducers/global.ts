@@ -20,6 +20,30 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         localStorage: action.payload
       }
+    case t.LOGGING_IN:
+      return {
+        ...state,
+      }
+    case t.LOGIN_SUCCESS:
+      return {
+        ...state,
+        user: action.payload.user,
+        localStorage: {
+          ...state.localStorage,
+          userId: action.payload.user.id,
+          authToken: action.payload.authToken
+        }
+      }
+    case t.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        user: null,
+        localStorage: {
+          ...state.localStorage,
+          userId: null,
+          authToken: null,
+        }
+      }
     case t.FETCH_STORE_SUCCESS:
       return {
         ...state,

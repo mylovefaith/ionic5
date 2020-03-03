@@ -1,16 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { IonButtons, IonButton, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { RouteComponentProps } from 'react-router';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import {
+  IonButtons,
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
+
+import { auth } from '../../business/actions';
+import { User } from '../../business/models';
 
 import './styles.scss';
 
-interface OwnProps extends RouteComponentProps<{ name: string }> {}
+interface LoginScreenProps {
+  authToken: string;
+  login: Function;
+  logout: Function;
+}
 
-const LoginScreen: React.FC<OwnProps> = () => {
+const LoginScreen: React.FC<LoginScreenProps> = ({ authToken, login, logout }) => {
+  const onSubmit = () => login('mylovefaith@gmail.com', '1111');
 
-  const onSubmit = () => {
-    console.log("HANDLE CLICK")
-  }
+  useEffect(() => {
+    if (authToken) logout();
+  }, []);
 
   return (
     <IonPage>
@@ -24,10 +42,21 @@ const LoginScreen: React.FC<OwnProps> = () => {
       </IonHeader>
 
       <IonContent>
-        <IonButton expand='full' onClick={onSubmit} >Login</IonButton>
+        <IonButton expand="full" onClick={onSubmit}>
+          Login
+        </IonButton>
       </IonContent>
     </IonPage>
   );
 };
 
-export default LoginScreen;
+const mapStatetoProps = state => ({
+  authToken: state.global.localStorage.authToken,
+});
+
+const mapDispatchToProps = {
+  login: auth.login,
+  logout: auth.logout,
+};
+
+export default connect(mapStatetoProps, mapDispatchToProps)(LoginScreen);

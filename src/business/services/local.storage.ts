@@ -32,6 +32,15 @@ export const setStoreId = async (storeId: number) => {
   await Storage.set({ key: STORE_ID, value: storeId.toString()});
 }
 
-export const setUserId = async (storeId: number) => {
-  await Storage.set({ key: STORE_ID, value: storeId.toString()});
+export const setUserId = async (userId: number) => {
+  await Storage.set({ key: USER_ID, value: userId.toString()});
+}
+
+export const setAuthToken = async (authToken: string) => {
+  await Storage.set({ key: AUTH_TOKEN, value: authToken });
+}
+
+export const clearAuth = async () => {
+  await Storage.remove({ key: USER_ID });
+  await Storage.remove({ key: AUTH_TOKEN });
 }

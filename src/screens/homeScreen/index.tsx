@@ -15,13 +15,7 @@ const HomeScreen: React.FC<OwnProps> = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Home!!!</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-      </IonContent>
+      <IonContent>Home page content</IonContent>
     </IonPage>
   );
 };

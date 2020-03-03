@@ -15,13 +15,7 @@ const GroupScreen: React.FC<OwnProps> = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Group!!!</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-      </IonContent>
+      <IonContent>Group page content</IonContent>
     </IonPage>
   );
 };

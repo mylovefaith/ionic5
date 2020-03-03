@@ -4,7 +4,6 @@ import { IonApp } from '@ionic/react';
 
 import store from '../business/store';
 import AppInit from './appInit';
-import Router from './router';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -29,9 +28,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <IonApp>
-        <AppInit>
-          <Router />
-        </AppInit>
+        <AppInit />
       </IonApp>
     </Provider>
   );

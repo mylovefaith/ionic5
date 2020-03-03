@@ -1,25 +1,43 @@
 import { localStorage } from '../services';
 import { t } from './';
 
-function login(email, password) {
+export function login(email, password) {
   return async dispatch => {
+
+    /*
     dispatch({
       type: t.LOGGING_IN
     })
-
-    setTimeout(function() {
-      dispatch({
-        type: t.LOGIN_SUCCESS,
-        payload: {
+    */
+ 
+      const fakeResponse = {
+        user: {
           id: 1,
           email: 'mylovefaith@gmail.com',
           firstName: 'Peter',
           lastName: 'Yoon',
-        }
+        },
+        authToken: 'testauthtoken',
+      }
+
+      await localStorage.setAuthToken(fakeResponse.authToken);
+      await localStorage.setUserId(fakeResponse.user.id);
+
+      dispatch({
+        type: t.LOGIN_SUCCESS,
+        payload:fakeResponse,
       })
-    }, 2000);
     
   }
 }
 
-export default loadApp;
+export function logout() {
+  return dispatch => {
+
+    localStorage.clearAuth();
+
+    dispatch({
+      type: t.LOGOUT_SUCCESS,
+    })
+  }
+}
