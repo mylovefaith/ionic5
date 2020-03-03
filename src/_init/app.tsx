@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import { IonApp } from '@ionic/react';
 
 import store from '../business/store';
-import AppInit from './AppInit';
-import Router from './Router';
+import AppInit from './appInit';
+import Router from './router';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';

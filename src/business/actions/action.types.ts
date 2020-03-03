@@ -1,4 +1,18 @@
-export const LOAD_STORAGE = 'LOAD_STORAGE';
-export const FETCH_STORE = 'FETCH_STORE';
+export const LOADING = 'LOADING';
+export const UPDATING = 'UPDATING';
+export const PROCESSING = 'PROCESSING';
+export const LOGGING_IN = 'LOGGING_IN'
+export const LOGGING_OUT = 'LOGGING_OUT'
 
-export const FETCH_USER = 'FETCH_USER';
+export const LOAD_STORAGE = 'LOAD_STORAGE';
+
+export const FETCH_STORE_SUCCESS = 'FETCH_STORE_SUCCESS';
+export const FETCH_STORE_FAILURE = 'FETCH_STORE_FAILURE';
+
+export const LOGIN_PENDING = 'LOGIN_PENDING';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const LOGOUT_PENDING = 'LOGOUT_PENDING';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+
+export const LOAD_USER = 'LOAD_USER';

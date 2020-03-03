@@ -1,5 +1,5 @@
-import React from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useState, useEffect } from 'react';
+import { IonButtons, IonButton, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 
 import './styles.scss';
@@ -7,6 +7,11 @@ import './styles.scss';
 interface OwnProps extends RouteComponentProps<{ name: string }> {}
 
 const LoginScreen: React.FC<OwnProps> = () => {
+
+  const onSubmit = () => {
+    console.log("HANDLE CLICK")
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -19,11 +24,7 @@ const LoginScreen: React.FC<OwnProps> = () => {
       </IonHeader>
 
       <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Login!!</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+        <IonButton expand='full' onClick={onSubmit} >Login</IonButton>
       </IonContent>
     </IonPage>
   );

@@ -1,10 +1,10 @@
-import { getStorageData } from '../services/local.storage';
+import { localStorage } from '../services';
 import { t } from './';
 
 function loadApp() {
   return async dispatch => {
     // await GET LOCAL STORAGE
-    const storageData = await getStorageData();
+    const storageData = await localStorage.getStorageData();
 
     setTimeout(function() {
       // await FECH INIT
@@ -14,14 +14,14 @@ function loadApp() {
       })
 
       dispatch({
-        type: t.FETCH_STORE,
+        type: t.FETCH_STORE_SUCCESS,
         payload: {
           id: 1,
           name: 'Antioch',
           phone: '111-222-3333',
         }
       })
-    }, 1000)
+    }, 0)
     
   }
 }

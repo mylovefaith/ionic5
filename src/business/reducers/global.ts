@@ -20,7 +20,7 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         localStorage: action.payload
       }
-    case t.FETCH_STORE:
+    case t.FETCH_STORE_SUCCESS:
       return {
         ...state,
         store: action.payload
