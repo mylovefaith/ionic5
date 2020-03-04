@@ -15,7 +15,12 @@ const HomeScreen: React.FC<OwnProps> = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent>Home page content</IonContent>
+      <IonContent>
+        <div className="ion-padding-top ion-text-center">
+          <h2>Welcome!</h2>
+          Home page content
+        </div>
+      </IonContent>
     </IonPage>
   );
 };

@@ -12,7 +12,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 
-import { auth } from '../../business/actions';
+import { authAction } from '../../business/actions';
 import { User } from '../../business/models';
 
 import './styles.scss';
@@ -55,8 +55,8 @@ const mapStatetoProps = state => ({
 });
 
 const mapDispatchToProps = {
-  login: auth.login,
-  logout: auth.logout,
+  login: authAction.login,
+  logout: authAction.logout,
 };
 
 export default connect(mapStatetoProps, mapDispatchToProps)(LoginScreen);

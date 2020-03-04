@@ -3,7 +3,7 @@ import { IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
-import Menu from '../components/Menu';
+import { Menu } from '../components';
 import { HomeScreen, GroupScreen } from '../screens';
 import LoginScreen from '../screens/loginScreen';
 import PrivateRoute from './privateRoute';

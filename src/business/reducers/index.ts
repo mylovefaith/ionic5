@@ -1,3 +1,13 @@
-import globalReducer from './global';
+import { combineReducers } from 'redux';
 
-export { globalReducer };
+import globalReducer from './global';
+import loadingReducer from './loading';
+import groupReducer from './group';
+
+const appReducer = combineReducers({ 
+  global: globalReducer, 
+  group: groupReducer, 
+  loading: loadingReducer 
+});
+
+export default appReducer;

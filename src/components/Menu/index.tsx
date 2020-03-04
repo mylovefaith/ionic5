@@ -7,7 +7,9 @@ import {
   IonListHeader,
   IonMenu,
   IonMenuToggle,
-  IonNote,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/react';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
@@ -35,10 +37,14 @@ const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
   return (
     <IonMenu contentId="main" type="overlay">
-      <IonContent>
-        <IonList id="inbox-list">
-          <IonListHeader>Menu</IonListHeader>
-          <IonNote>Pages</IonNote>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Menu</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent class="outer-content">
+        <IonList>
+          <IonListHeader>Navigate</IonListHeader>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
@@ -60,7 +66,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
           </IonItem>
         </IonList>
 
-        <IonList id="labels-list">
+        <IonList>
           <IonListHeader>Labels</IonListHeader>
           {labels.map((label, index) => (
             <IonItem lines="none" key={index}>

@@ -1,9 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { loading } from '../../hoc';
 
-interface OwnProps {}
+import { groupAction } from '../../business/actions';
 
-const GroupScreen: React.FC<OwnProps> = () => {
+interface GroupScreenProps {
+  isLoading;
+  onHydrate;
+  onDehydrate;
+  group;
+}
+
+const GroupScreen: React.FC<GroupScreenProps> = ({ group }) => {
   return (
     <IonPage>
       <IonHeader>
@@ -20,4 +29,16 @@ const GroupScreen: React.FC<OwnProps> = () => {
   );
 };
 
-export default GroupScreen;
+const mapStateToProps = state => ({
+  group: state.group,
+  isLoading: state.loading.isLoading,
+});
+
+const mapDispatchToProps = {
+  onHydrate: () => groupAction.fetchGroup(1),
+  onDehydrate: groupAction.dehydrate,
+};
+
+const connected = connect(mapStateToProps, mapDispatchToProps);
+
+export default connected(loading(GroupScreen));

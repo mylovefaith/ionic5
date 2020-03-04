@@ -1,6 +1,7 @@
 import * as t from './action.types';
 
 import loadApp from './loadApp';
-import * as auth from './auth';
+import * as authAction from './auth';
+import * as groupAction from './group';
 
-export { loadApp, auth, t };
+export { groupAction, authAction, loadApp, t };
