@@ -26,17 +26,17 @@ const Dialog = {
     alert.subHeader = params.subtitle || '';
     alert.message = params.message || '';
     let buttons = [];
-    if(params.button) {
-      buttons.push(Object.freeze({
-        text: params.button,
-        handler: params.onPress || (() => {})
-      }))
-    }
     if(params.button2) {
       buttons.push(Object.freeze({
         text: params.button2,
         cssClass: 'secondary',
         handler: params.onPress2 || (() => {})
+      }))
+    }
+    if(params.button) {
+      buttons.push(Object.freeze({
+        text: params.button,
+        handler: params.onPress || (() => {})
       }))
     }
     alert.buttons = buttons;

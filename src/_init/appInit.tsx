@@ -21,9 +21,9 @@ const AppInit: React.FC<AppInitProps> = ({ children, loadApp, store, authToken }
   }, []);
 
   // Should display loading
-  if (!store) return <IonLoading isOpen={true} message={'Initializing App...'} />
+  if (!store) return <IonLoading isOpen={true} message={'Initializing App...'} />;
 
-  console.log("ENV", process.env);
+  console.log('ENV', process.env);
   console.log('RENDER appInit:1');
 
   return <Router isLoggedIn={authToken !== null} />;

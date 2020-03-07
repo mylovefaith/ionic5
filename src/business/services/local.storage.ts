@@ -6,6 +6,8 @@ const STORE_ID = 'storeId';
 const USER_ID = 'userId';
 const DEVICE_ID = 'deviceId';
 const AUTH_TOKEN = 'authToken';
+const MODE = 'mode'; // Light or Dark theme
+const THEME = 'theme';
 
 export const getStorageData = async () => {
   const response = await Promise.all([
@@ -13,18 +15,24 @@ export const getStorageData = async () => {
     Storage.get({ key: USER_ID }),
     Storage.get({ key: DEVICE_ID }),
     Storage.get({ key: AUTH_TOKEN }),
+    Storage.get({ key: MODE }),
+    Storage.get({ key: THEME }),
   ]);
 
   const storeId = await response[0].value || 1;
   const userId = await response[1].value || null;
   const deviceId = await response[2].value || null;
   const authToken = await response[3].value || null;
+  const mode = await response[4].value || null;
+  const theme = await response[5].value || null;
 
   return {
     storeId,
     userId,
     deviceId,
     authToken,
+    mode,
+    theme,
   }
 }
 
@@ -38,6 +46,14 @@ export const setUserId = async (userId: number) => {
 
 export const setAuthToken = async (authToken: string) => {
   await Storage.set({ key: AUTH_TOKEN, value: authToken });
+}
+
+export const getStorageItem = async(key: string) => {
+  await Storage.get({ key });
+}
+
+export const setStorageItem = async(key: string, item: string) => {
+  await Storage.set({ key, value: item });
 }
 
 export const clearAuth = async () => {

@@ -10,6 +10,8 @@ export const INITIAL_STATE = {
     userId: null,
     deviceId: null,
     authToken: null,
+    mode: null,
+    theme: null,
   }
 };
 

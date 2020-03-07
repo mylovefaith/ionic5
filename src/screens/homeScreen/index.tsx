@@ -6,14 +6,24 @@ import {
   IonHeader,
   IonMenuButton,
   IonPage,
+  IonItem,
+  IonLabel,
   IonTitle,
+  IonToggle,
   IonToolbar,
 } from '@ionic/react';
 import { Dialog } from '../../components';
+import { theme } from '../../business/services';
 
 interface OwnProps {}
 
 const HomeScreen: React.FC<OwnProps> = () => {
+  const toggleTheme = ({ detail }) => {
+    theme.switchDarkMode(detail.checked);
+  };
+
+  const { DEFAULT, AUTUMN, NIGHT, NEON } = theme;
+
   return (
     <IonPage>
       <IonHeader>
@@ -29,7 +39,7 @@ const HomeScreen: React.FC<OwnProps> = () => {
         <div className="ion-padding-top ion-text-center">
           <h2>Welcome!</h2>
           Home page content
-          <div>
+          <IonItem>
             <IonButton
               onClick={() =>
                 Dialog.alert({
@@ -40,9 +50,10 @@ const HomeScreen: React.FC<OwnProps> = () => {
               }>
               Show Alert
             </IonButton>
-          </div>
-          <div>
+          </IonItem>
+          <IonItem>
             <IonButton
+              color="secondary"
               onClick={() =>
                 Dialog.confirm({
                   title: 'Wait!...',
@@ -56,7 +67,27 @@ const HomeScreen: React.FC<OwnProps> = () => {
               }>
               Show Confirm
             </IonButton>
-          </div>
+          </IonItem>
+          <IonItem>
+            <IonLabel>Use Dark Theme</IonLabel>
+            <IonToggle value="dark-theme" onIonChange={toggleTheme} />
+          </IonItem>
+          <IonItem>
+            <IonButtons>
+              <IonButton color="primary" onClick={() => theme.switchTheme(DEFAULT)}>
+                Default
+              </IonButton>
+              <IonButton color="secondary" onClick={() => theme.switchTheme(AUTUMN)}>
+                Autumn
+              </IonButton>
+              <IonButton color="tertiary" onClick={() => theme.switchTheme(NIGHT)}>
+                Night
+              </IonButton>
+              <IonButton color="medium" onClick={() => theme.switchTheme(NEON)}>
+                Neon
+              </IonButton>
+            </IonButtons>
+          </IonItem>
         </div>
       </IonContent>
     </IonPage>

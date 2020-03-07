@@ -1,14 +1,26 @@
-import { apiService, localStorage } from '../services';
+import { apiService, localStorage, theme } from '../services';
 import { t } from './';
 
+function restoreTheme({ mode, theme: localTheme}) {   
+  const { DARK_THEME_CLASS }= theme;
+
+  theme.switchDarkMode(mode === DARK_THEME_CLASS);
+  theme.switchTheme(localTheme);
+}
+
 function loadApp() {
-  return async dispatch => {
+  return async (dispatch, getState) => {
     // await GET LOCAL STORAGE
     const storageData = await localStorage.getStorageData();
+
     dispatch({
       type: t.LOAD_STORAGE,
       payload: storageData
     })
+
+    const { global } = getState();
+    console.log(global);
+    restoreTheme(global.localStorage);
 
     // await fetching initial store
     const store = await apiService.fetchPost('init.php');
