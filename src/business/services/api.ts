@@ -1,6 +1,7 @@
 import store from '../store';
+import { API_BASE } from '../../_init/config'
 
-export const authPost = async ({ url, params}) => {
+export const authPost = async (url, param = {}) => {
   const state = store.getState()
   const { localStorage: { storeId, deviceId, userId, authToken } } = state.global;
 
@@ -14,16 +15,16 @@ export const authPost = async ({ url, params}) => {
       deviceId,
       userId,
     },
-    body: params ? JSON.stringify(params) : undefined
+    body: JSON.stringify(param)
   }
 
-  const response = await fetch(url, options);
+  const response = await fetch(`${API_BASE}/${url}`, options);
   const result = await response.json();
 
   return Promise.resolve(result);
 } 
 
-export const fetchPost = async ({ url, params}) => {
+export const fetchPost = async (url, param = {}) => {
   const state = store.getState()
   const { localStorage: { storeId, deviceId } } = state.global;
 
@@ -35,10 +36,10 @@ export const fetchPost = async ({ url, params}) => {
       storeId,
       deviceId,
     },
-    body: params ? JSON.stringify(params) : undefined
+    body: JSON.stringify(param)
   }
 
-  const response = await fetch(url, options);
+  const response = await fetch(`${API_BASE}/${url}`, options);
   const result = await response.json(); 
 
   return Promise.resolve(result);

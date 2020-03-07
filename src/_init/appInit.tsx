@@ -1,4 +1,5 @@
 import React, { useEffect, ReactNode } from 'react';
+import { IonLoading } from '@ionic/react';
 import { connect } from 'react-redux';
 
 import { Store } from '../business/models';
@@ -20,8 +21,9 @@ const AppInit: React.FC<AppInitProps> = ({ children, loadApp, store, authToken }
   }, []);
 
   // Should display loading
-  if (!store) return null;
+  if (!store) return <IonLoading isOpen={true} message={'Initializing App...'} />
 
+  console.log("ENV", process.env);
   console.log('RENDER appInit:1');
 
   return <Router isLoggedIn={authToken !== null} />;
