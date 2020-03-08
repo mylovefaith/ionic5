@@ -18,7 +18,7 @@ export const authPost = async (url, param = {}) => {
     body: JSON.stringify(param)
   }
 
-  const response = await fetch(`${API_BASE}/${url}`, options);
+  const response = await fetch(`${API_BASE}/${url}`, options).catch(handleErr);
   const result = await response.json();
 
   return Promise.resolve(result);
@@ -39,9 +39,19 @@ export const fetchPost = async (url, param = {}) => {
     body: JSON.stringify(param)
   }
 
-  const response = await fetch(`${API_BASE}/${url}`, options);
-  const result = await response.json(); 
+  const response = await fetch(`${API_BASE}/${url}`, options).catch(handleErr);
+  const result = await response.json();
 
   return Promise.resolve(result);
 }
 
+const handleErr = (err) => {
+  console.warn(err);
+  const resp = new Response(
+    JSON.stringify({
+      err: 'Network error',
+      message: err.message,
+    })
+  )
+  return resp
+}

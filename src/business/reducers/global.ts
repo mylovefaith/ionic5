@@ -5,6 +5,7 @@ export const INITIAL_STATE = {
   user: null,
   authToken: null,
   device: null,
+  initSuccess: null,
   localStorage: {
     storeId: null,
     userId: null,
@@ -49,7 +50,14 @@ export default function(state = INITIAL_STATE, action) {
     case t.FETCH_STORE_SUCCESS:
       return {
         ...state,
-        store: action.payload
+        store: action.payload,
+        initSuccess: true,
+      }
+    case t.FETCH_STORE_FAILURE:
+      return {
+        ...state,
+        initSuccess: false,
+        store: action.payload,
       }
     default:
       return state;

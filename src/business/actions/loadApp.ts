@@ -24,9 +24,16 @@ function loadApp() {
 
     // await fetching initial store
     const store = await apiService.fetchPost('init.php');
+    if(store.err) {
+      return dispatch({
+        type: t.FETCH_STORE_FAILURE,
+        err: store,
+      })
+    }
+
     dispatch({
       type: t.FETCH_STORE_SUCCESS,
-      payload: store
+      payload: store,
     });
   }
 }

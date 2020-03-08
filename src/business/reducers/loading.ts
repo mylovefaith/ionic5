@@ -15,9 +15,11 @@ export default function(state = INITIAL_STATE, action) {
     error: null,
   }
 
-  if(hasLoaded) return {
-    isLoading: false,
-    error: action.error || null,
+  if(hasLoaded) {
+    return {
+      isLoading: false,
+      error: action.err || null,
+    }
   }
 
   return state;

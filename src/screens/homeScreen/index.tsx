@@ -45,7 +45,6 @@ const HomeScreen: React.FC<OwnProps> = () => {
                 Dialog.alert({
                   title: 'Success',
                   message: 'Successfully saved!',
-                  button: 'OK',
                 })
               }>
               Show Alert
@@ -58,8 +57,6 @@ const HomeScreen: React.FC<OwnProps> = () => {
                 Dialog.confirm({
                   title: 'Wait!...',
                   message: 'Are you sure you want to delete? This action is irreversable.',
-                  button: 'Yes, Delete!',
-                  button2: "NO! Don't",
                   onPress: () => {
                     console.log('CONFIRM PRESSED!');
                   },
