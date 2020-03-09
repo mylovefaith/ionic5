@@ -1,0 +1,10 @@
+.validation-error {
+  flex: initial;
+  float: right;
+  position: absolute;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 14px;
+  right: 10px;
+  color: var(--ion-color-danger);
+}

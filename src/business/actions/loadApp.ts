@@ -19,7 +19,6 @@ function loadApp() {
     })
 
     const { global } = getState();
-    console.log(global);
     restoreTheme(global.localStorage);
 
     // await fetching initial store
