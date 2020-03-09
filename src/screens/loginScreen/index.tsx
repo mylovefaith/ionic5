@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {
-  IonButtons,
-  IonButton,
-  IonContent,
-  IonHeader,
-  IonMenuButton,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react';
+import { IonButton, IonContent, IonPage } from '@ionic/react';
+import { Formik, Form, Field, FormikProps, ErrorMessage } from 'formik';
 
 import { authAction } from '../../business/actions';
 import { User } from '../../business/models';
+import { Header, TextInput } from '../../components';
 
 import './styles.scss';
 
@@ -31,20 +24,32 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ authToken, login, logout }) =
   }, []);
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Login Page</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-
+    <IonPage id="login-screen">
+      <Header title="Login Page" />
       <IonContent>
-        <IonButton expand="full" onClick={onSubmit}>
-          Login
-        </IonButton>
+        <Formik
+          initialValues={{ email: 'mylovefaith@gmail.com', password: '' }}
+          validate={values => {
+            const errors: any = {};
+            if (!values.email) errors.email = 'Required';
+            if (values.email.length < 5) errors.email = 'Too short!';
+            if (!values.password) errors.password = 'Required';
+            if (values.password.length < 5) errors.password = 'Password Too short!';
+            console.log('VALUES:ERRORS', values, errors);
+            return errors;
+          }}
+          onSubmit={values => {
+            console.log('handle Submit', values);
+          }}>
+          <Form>
+            <h4>Login</h4>
+            <TextInput type="email" name="email" label="Email" />
+            <TextInput type="password" name="password" label="Password" />
+            <IonButton expand="full" type="submit">
+              Login
+            </IonButton>
+          </Form>
+        </Formik>
       </IonContent>
     </IonPage>
   );

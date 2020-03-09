@@ -1,18 +1,6 @@
 import React from 'react';
-import {
-  IonButtons,
-  IonButton,
-  IonContent,
-  IonHeader,
-  IonMenuButton,
-  IonPage,
-  IonItem,
-  IonLabel,
-  IonTitle,
-  IonToggle,
-  IonToolbar,
-} from '@ionic/react';
-import { Dialog } from '../../components';
+import { IonButtons, IonButton, IonContent, IonPage, IonItem, IonLabel, IonToggle } from '@ionic/react';
+import { Dialog, Header } from '../../components';
 import { theme } from '../../business/services';
 
 interface OwnProps {}
@@ -26,14 +14,7 @@ const HomeScreen: React.FC<OwnProps> = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Home Page</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header title="Home Page" />
 
       <IonContent>
         <div className="ion-padding-top ion-text-center">
