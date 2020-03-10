@@ -1,5 +1,6 @@
 import { localStorage } from '../services';
 import { t } from './';
+import { ROUTES } from '../enums';
 
 export function login({email, password}) {
   return async dispatch => {
@@ -36,6 +37,11 @@ export function logout() {
 
     dispatch({
       type: t.LOGOUT_SUCCESS,
+    })
+
+    dispatch({
+      type: t.ROUTE,
+      payload: ROUTES.LOGIN
     })
   }
 }

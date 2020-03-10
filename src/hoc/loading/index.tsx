@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { IonLoading, withIonLifeCycle } from '@ionic/react';
+import { routeAction } from '../../business/actions';
+import store from '../../business/store';
 
 interface AsLoadingViewProps {
-  isLoading: boolean;
+  isLoading?: boolean;
   loadingText?: string;
-  onHydrate: Function;
-  onDehydrate: Function;
+  onHydrate?: Function;
+  onDehydrate?: Function;
+  match?: any;
 }
 
 const loading = LoadingView => {
@@ -17,16 +20,14 @@ const loading = LoadingView => {
       onDehydrate: null,
     };
 
-    constructor(props) {
-      super(props);
-    }
-
     ionViewWillEnter() {
-      this.props.onHydrate();
+      const { match } = this.props;
+      if (match && match.path) store.dispatch(routeAction.route(match.path));
+      if (this.props.onHydrate) this.props.onHydrate();
     }
 
     ionViewWillLeave() {
-      this.props.onDehydrate();
+      if (this.props.onDehydrate) this.props.onDehydrate();
     }
 
     shouldComponentUpdate(nextProps) {

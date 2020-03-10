@@ -3,7 +3,6 @@ import { t } from '../actions';
 export const INITIAL_STATE = {
   store: null,
   user: null,
-  authToken: null,
   device: null,
   initSuccess: null,
   localStorage: {

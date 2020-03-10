@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonItem, IonLabel, IonInput, IonIcon } from '@ionic/react';
 import { FastField, ErrorMessage } from 'formik';
-import { mailSharp, mail, mailOpen } from 'ionicons/icons';
 
 import './styles.scss';
 

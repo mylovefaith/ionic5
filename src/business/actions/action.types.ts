@@ -5,6 +5,7 @@ export const LOGGING_IN = 'LOGGING_IN'
 export const LOGGING_OUT = 'LOGGING_OUT'
 
 export const LOAD_STORAGE = 'LOAD_STORAGE';
+export const ROUTE = 'ROUTE';
 
 export const FETCH_STORE_SUCCESS = 'FETCH_STORE_SUCCESS';
 export const FETCH_STORE_FAILURE = 'FETCH_STORE_FAILURE';

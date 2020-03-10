@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { IonButtons, IonButton, IonContent, IonPage, IonItem, IonLabel, IonToggle } from '@ionic/react';
 import { Dialog, Header } from '../../components';
 import { theme } from '../../business/services';
+import { loading } from '../../hoc';
 
 interface OwnProps {}
 
@@ -72,4 +74,6 @@ const HomeScreen: React.FC<OwnProps> = () => {
   );
 };
 
-export default HomeScreen;
+const connected = connect(null, null);
+
+export default connected(loading(HomeScreen));
