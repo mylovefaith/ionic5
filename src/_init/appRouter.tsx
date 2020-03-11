@@ -20,7 +20,7 @@ interface RouterProps {
 
 const Router: React.FC<RouterProps> = ({ isLoggedIn, currentRoute, onLogout }) => {
   return (
-    <IonReactRouter>
+    <IonReactRouter basename={process.env.REACT_APP_PUBLIC_URL}>
       {isLoggedIn && (
         <IonSplitPane contentId="main">
           {Features.MENU && <Menu currentRoute={currentRoute} onLogout={onLogout} />}

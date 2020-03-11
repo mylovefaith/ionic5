@@ -1,5 +1,5 @@
 const AUTH = false;
-const MENU = false;
+const MENU = true;
 
 const Feature = {
   AUTH,

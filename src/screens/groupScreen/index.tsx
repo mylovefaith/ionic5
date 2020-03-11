@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { loading } from '../../hoc';
 
-import { groupAction } from '../../business/actions';
+import { loading } from 'hoc';
+import { groupAction } from 'business/actions';
 
 interface GroupScreenProps {
   isLoading;

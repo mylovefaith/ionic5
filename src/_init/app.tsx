@@ -25,6 +25,8 @@ import '@ionic/react/css/display.css';
 import '../theme/variables.css';
 
 const App: React.FC = () => {
+  console.log('ENV', process.env);
+
   return (
     <Provider store={store}>
       <IonApp>

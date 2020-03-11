@@ -1,5 +1,4 @@
 import store from '../store';
-import { API_BASE } from '../config'
 
 export const authPost = async (url, param = {}) => {
   const state = store.getState()
@@ -18,7 +17,7 @@ export const authPost = async (url, param = {}) => {
     body: JSON.stringify(param)
   }
 
-  const response = await fetch(`${API_BASE}/${url}`, options).catch(handleErr);
+  const response = await fetch(`${process.env.REACT_APP_API_BASE}/${url}`, options).catch(handleErr);
   const result = await response.json();
 
   return Promise.resolve(result);
@@ -39,7 +38,7 @@ export const fetchPost = async (url, param = {}) => {
     body: JSON.stringify(param)
   }
 
-  const response = await fetch(`${API_BASE}/${url}`, options).catch(handleErr);
+  const response = await fetch(`${process.env.REACT_APP_API_BASE}/${url}`, options).catch(handleErr);
   const result = await response.json();
 
   return Promise.resolve(result);

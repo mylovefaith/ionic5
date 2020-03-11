@@ -28,9 +28,6 @@ const AppInit: React.FC<AppInitProps> = ({ loadApp, initSuccess }) => {
   // Should display loading
   if (!initSuccess) return <IonLoading isOpen={true} message={'Initializing App...'} />;
 
-  console.log('ENV', process.env);
-  console.log('RENDER appInit');
-
   return <Router />;
 };
 

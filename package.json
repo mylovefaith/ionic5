@@ -1,6 +1,7 @@
 {
   "name": "ionic-react-conference-app",
   "version": "0.0.1",
+  "homepage": "/react/ionic5/build",
   "private": true,
   "dependencies": {
     "@capacitor/core": "1.5.0",
