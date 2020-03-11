@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { IonButtons, IonButton, IonContent, IonPage, IonItem, IonLabel, IonToggle } from '@ionic/react';
-import { Dialog, Header } from '../../components';
-import { theme } from '../../business/services';
-import { loading } from '../../hoc';
+
+import { theme } from 'business/services';
+import { Dialog, Header } from 'components';
+import { loading } from 'hoc';
 
 interface OwnProps {}
 

@@ -1,6 +1,7 @@
 import { localStorage } from '../services';
-import { t } from './';
 import { ROUTES } from '../enums';
+
+import { t } from './';
 
 export function login({email, password}) {
   return async dispatch => {

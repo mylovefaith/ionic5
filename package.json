@@ -52,7 +52,17 @@
     "@testing-library/react": "^9.3.1",
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "link-module-alias": "^1.2.0",
     "prettier": "^1.19.1",
     "typescript": "3.6.3"
+  },
+  "_moduleAliases": {
+    "~root": ".",
+    "business": "src/business",
+    "screens": "src/screens",
+    "components": "src/components",
+    "hoc": "src/hoc",
+    "features": "src/features.ts",
+    "theme": "src/theme"
   }
 }

@@ -4,9 +4,9 @@ import { IonButton, IonContent, IonPage } from '@ionic/react';
 import { Formik, Form } from 'formik';
 import { mailOutline, lockClosedOutline } from 'ionicons/icons';
 
-import { authAction } from '../../business/actions';
-import { Header, TextInput } from '../../components';
-import { loading } from '../../hoc';
+import { authAction } from 'business/actions';
+import { Header, TextInput } from 'components';
+import { loading } from 'hoc';
 
 import './styles.scss';
 

@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { IonLoading } from '@ionic/react';
 import { connect } from 'react-redux';
 
-import { Dialog } from '../components';
-import { loadApp as loadAppAction } from '../business/actions';
-
+import { Dialog } from 'components';
+import { loadApp as loadAppAction } from 'business/actions';
 import Router from './appRouter';
 
-import '../theme/general.scss';
+import 'theme/general.scss';
 
 interface AppInitProps {
   initSuccess: boolean;

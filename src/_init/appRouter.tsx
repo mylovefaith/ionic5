@@ -4,12 +4,12 @@ import { IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
-import Features from '../features';
-import { Menu } from '../components';
-import { ROUTES } from '../business/enums';
-import { authAction } from '../business/actions';
-import { HomeScreen, GroupScreen } from '../screens';
-import LoginScreen from '../screens/loginScreen';
+import Features from 'business/features';
+import { authAction } from 'business/actions';
+import { ROUTES } from 'business/enums';
+import { Menu } from 'components';
+import { HomeScreen, GroupScreen, LoginScreen } from 'screens';
+
 import PrivateRoute from './privateRoute';
 
 interface RouterProps {

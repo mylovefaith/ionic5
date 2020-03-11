@@ -15,7 +15,7 @@ import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { homeOutline, homeSharp, personOutline, personSharp, bookmark, logOutOutline } from 'ionicons/icons';
 
-import { ROUTES } from '../../business/enums';
+import { ROUTES } from 'business/enums';
 import './styles.scss';
 
 interface MenuProps extends RouteComponentProps {

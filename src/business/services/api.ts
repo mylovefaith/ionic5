@@ -1,5 +1,5 @@
 import store from '../store';
-import { API_BASE } from '../../_init/config'
+import { API_BASE } from '../config'
 
 export const authPost = async (url, param = {}) => {
   const state = store.getState()
