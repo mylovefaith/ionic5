@@ -1,4 +1,5 @@
 import { Plugins } from '@capacitor/core';
+import { DEFAULT_AUTH_TOKEN } from '../enums';
 
 const { Storage } = Plugins;
 
@@ -30,7 +31,7 @@ export const getStorageData = async () => {
     storeId,
     userId,
     deviceId,
-    authToken,
+    authToken: DEFAULT_AUTH_TOKEN || authToken,
     mode,
     theme,
   }

@@ -4,6 +4,7 @@ import { IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
+import Features from '../features';
 import { Menu } from '../components';
 import { ROUTES } from '../business/enums';
 import { authAction } from '../business/actions';
@@ -22,7 +23,7 @@ const Router: React.FC<RouterProps> = ({ isLoggedIn, currentRoute, onLogout }) =
     <IonReactRouter>
       {isLoggedIn && (
         <IonSplitPane contentId="main">
-          <Menu currentRoute={currentRoute} onLogout={onLogout} />
+          {Features.MENU && <Menu currentRoute={currentRoute} onLogout={onLogout} />}
           <IonRouterOutlet id="main">
             <PrivateRoute path={ROUTES.HOME} component={HomeScreen} exact={true} isLoggedIn={isLoggedIn} />
             <PrivateRoute path={ROUTES.GROUP} component={GroupScreen} exact={true} isLoggedIn={isLoggedIn} />

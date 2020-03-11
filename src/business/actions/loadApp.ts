@@ -1,5 +1,6 @@
 import { apiService, localStorage, theme } from '../services';
 import { t } from './';
+import { DEFAULT_AUTH_TOKEN } from '../enums';
 
 function restoreTheme({ mode, theme: localTheme}) {   
   const { DARK_THEME_CLASS }= theme;
@@ -15,7 +16,7 @@ function loadApp() {
 
     dispatch({
       type: t.LOAD_STORAGE,
-      payload: storageData
+      payload: storageData,
     })
 
     const { global } = getState();

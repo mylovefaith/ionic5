@@ -1,4 +1,5 @@
 import { t } from '../actions';
+import { DEFAULT_AUTH_TOKEN } from '../enums';
 
 export const INITIAL_STATE = {
   store: null,
@@ -9,7 +10,7 @@ export const INITIAL_STATE = {
     storeId: null,
     userId: null,
     deviceId: null,
-    authToken: null,
+    authToken: DEFAULT_AUTH_TOKEN,
     mode: null,
     theme: null,
   }
@@ -43,7 +44,7 @@ export default function(state = INITIAL_STATE, action) {
         localStorage: {
           ...state.localStorage,
           userId: null,
-          authToken: null,
+          authToken: DEFAULT_AUTH_TOKEN,
         }
       }
     case t.FETCH_STORE_SUCCESS:

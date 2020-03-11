@@ -1,4 +1,4 @@
 import * as ROUTES from './routes';
+import { DEFAULT_AUTH_TOKEN } from './auth';
 
-// @ts-ignore
-export { ROUTES }
+export { ROUTES, DEFAULT_AUTH_TOKEN }

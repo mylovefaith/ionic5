@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Dialog } from '../components';
 import { loadApp as loadAppAction } from '../business/actions';
 
-import Router from './router';
+import Router from './appRouter';
 
 import '../theme/general.scss';
 
