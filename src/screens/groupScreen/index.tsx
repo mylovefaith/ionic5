@@ -20,7 +20,7 @@ const GroupScreen: React.FC<GroupScreenProps> = ({ group }) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Group Page</IonTitle>
+          <IonTitle>Group Pages</IonTitle>
         </IonToolbar>
       </IonHeader>
 
