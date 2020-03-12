@@ -900,6 +900,11 @@
   dependencies:
     tslib "^1.9.0"
 
+"@capacitor/ios@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-1.5.1.tgz#9a0120ae500f37c6dc38b25c6ecfbe131013f70a"
+  integrity sha512-6b8o/U87KIRWj3OLT+RrStTS56FWF7/dJkFe75XS5PBZPlWl8dKB3MUb3oKpWX5E7Y105Yo8CA/fKOSk8QQzsg==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"

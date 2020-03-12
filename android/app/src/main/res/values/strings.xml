@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ionic 5 Boilerplate</string>
+    <string name="title_activity_main">Ionic 5 Boilerplate</string>
+    <string name="package_name">com.peteryoon.app</string>
+    <string name="custom_url_scheme">com.peteryoon.app</string>
+</resources>
