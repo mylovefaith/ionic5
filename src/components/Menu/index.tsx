@@ -37,7 +37,7 @@ const appPages: AppPage[] = [
 
 const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-const Menu: React.FunctionComponent<MenuProps> = React.memo(
+const Menu: React.FC<MenuProps> = React.memo(
   ({ currentRoute, onLogout }) => {
     return (
       <IonMenu contentId="main" type="overlay">

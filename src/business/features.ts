@@ -1,4 +1,4 @@
-const AUTH = false;
+const AUTH = true;
 const MENU = true;
 
 const Feature = {

@@ -1,6 +1,6 @@
 import { apiService, localStorage, theme } from '../services';
 import { t } from './';
-import { DEFAULT_AUTH_TOKEN } from '../enums';
+import { DEFAULT_AUTH_TOKEN, API } from '../enums';
 
 function restoreTheme({ mode, theme: localTheme}) {   
   const { DARK_THEME_CLASS }= theme;
@@ -23,7 +23,7 @@ function loadApp() {
     restoreTheme(global.localStorage);
 
     // await fetching initial store
-    const store = await apiService.fetchPost('init.php');
+    const store = await apiService.fetchPost(API.INIT);
     if(store.err) {
       return dispatch({
         type: t.FETCH_STORE_FAILURE,

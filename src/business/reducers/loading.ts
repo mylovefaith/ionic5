@@ -18,9 +18,19 @@ export default function(state = INITIAL_STATE, action) {
   }
 
   if(hasLoaded) {
+    if(type.includes('FAILURE')) {
+      return {
+        ...INITIAL_STATE,
+        error: action.payload || {
+          err: 'Error',
+          message: 'Unknown error'
+        }
+      }
+    }
+
     return {
       ...INITIAL_STATE,
-      error: action.err || null,
+      error: null,
     }
   }
 

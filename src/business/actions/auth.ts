@@ -8,26 +8,45 @@ export function login({email, password}) {
     dispatch({
       type: t.LOGGING_IN
     })
-    
-    const fakeResponse = {
-      user: {
-        id: 1,
-        email: email,
-        firstName: 'Peter',
-        lastName: 'Yoon',
-      },
-      authToken: 'testauthtoken',
+
+    const LOGIN_SUCCESS_SIMULATION = false;
+
+    if(LOGIN_SUCCESS_SIMULATION) {
+      // Simulate login success
+      const fakeResponse = {
+        user: {
+          id: 1,
+          email: email,
+          firstName: 'Peter',
+          lastName: 'Yoon',
+        },
+        authToken: 'testauthtoken',
+      }
+
+      await localStorage.setAuthToken(fakeResponse.authToken);
+      await localStorage.setUserId(fakeResponse.user.id);
+
+      setTimeout(() => {
+        dispatch({
+          type: t.LOGIN_SUCCESS,
+          payload:fakeResponse,
+        })
+      }, 1000);
+    } else {
+      // Simulate Login failure
+      const fakeResponse = {
+        err: "LOGIN",
+        message: 'Incorrect credential entered. Please try again.'
+      }
+
+      setTimeout(() => {
+        dispatch({
+          type: t.LOGIN_FAILURE,
+          payload: fakeResponse,
+        })
+      }, 1000);
+
     }
-
-    await localStorage.setAuthToken(fakeResponse.authToken);
-    await localStorage.setUserId(fakeResponse.user.id);
-
-    setTimeout(() => {
-      dispatch({
-        type: t.LOGIN_SUCCESS,
-        payload:fakeResponse,
-      })
-    }, 1000);
   }
 }
 
