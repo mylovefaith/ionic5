@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { IonContent, IonPage, IonToast } from '@ionic/react';
 
 import { authAction } from 'business/actions';
-import { Error } from 'business/models';
+import { ErrorType } from 'business/types';
 import { Header, LoginForm } from 'components';
 import { loading } from 'hoc';
 
@@ -13,7 +13,7 @@ interface LoginScreenProps {
   authToken: string;
   login: Function;
   logout: Function;
-  error: Error;
+  error: ErrorType;
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = React.memo(

@@ -10,7 +10,6 @@ import 'theme/general.scss';
 
 interface AppInitProps {
   initSuccess: boolean;
-  authToken: string;
   loadApp: Function;
 }
 
