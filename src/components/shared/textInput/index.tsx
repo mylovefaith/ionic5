@@ -30,7 +30,15 @@ const getPosition = position => {
   return position || 'fixed';
 };
 
-const TextInput: React.FC<TextInputProps> = ({ icon, label, name, placeholder, position, type, ...props }) => {
+const TextInput: React.FC<TextInputProps> = ({
+  icon,
+  label,
+  name,
+  placeholder,
+  position,
+  type,
+  ...props
+}) => {
   return (
     <>
       <FastField name={name}>

@@ -9,5 +9,5 @@ export const getAuthToken = () : string => {
 export const isLoggedIn = () : boolean => {
   const { global } = store.getState();
 
-  return global.localStorage.authToken && global.user;
+  return global.localStorage.authToken !== null;
 }

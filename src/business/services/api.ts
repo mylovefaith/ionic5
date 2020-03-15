@@ -10,9 +10,9 @@ export const authPost = async (url, param = {}) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: authToken,
-      storeId,
-      deviceId,
-      userId,
+      storeId: storeId ? storeId.toString() : null,
+      deviceId: deviceId ? deviceId.toString() : null,
+      userId: userId ? userId.toString(): null,
     },
     body: JSON.stringify(param)
   }
@@ -32,8 +32,8 @@ export const fetchPost = async (url, param = {}) => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      storeId,
-      deviceId,
+      storeId: storeId ? storeId.toString() : null,
+      deviceId: deviceId ? deviceId.toString() : null,
     },
     body: JSON.stringify(param)
   }

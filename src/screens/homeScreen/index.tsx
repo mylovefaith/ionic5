@@ -1,6 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { IonButtons, IonButton, IonContent, IonPage, IonItem, IonLabel, IonToggle } from '@ionic/react';
+import {
+  IonButtons,
+  IonButton,
+  IonContent,
+  IonPage,
+  IonItem,
+  IonLabel,
+  IonToggle,
+} from '@ionic/react';
 
 import { theme } from 'business/services';
 import { THEMES } from 'business/enums';

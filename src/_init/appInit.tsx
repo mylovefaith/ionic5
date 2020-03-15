@@ -3,7 +3,7 @@ import { IonLoading } from '@ionic/react';
 import { connect } from 'react-redux';
 
 import { Dialog } from 'components';
-import { initActions as loadAppAction } from 'business/_actions';
+import { initActions as loadAppAction } from 'business/actions';
 import Router from './appRouter';
 
 import 'theme/general.scss';
@@ -20,7 +20,10 @@ const AppInit: React.FC<AppInitProps> = ({ loadApp, initSuccess }) => {
   }, []);
 
   if (initSuccess === false) {
-    Dialog.alert({ title: 'Network Error', message: 'App failed to initialize. Please try again later.' });
+    Dialog.alert({
+      title: 'Network Error',
+      message: 'App failed to initialize. Please try again later.',
+    });
     return null;
   }
 

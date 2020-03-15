@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IonLoading, withIonLifeCycle } from '@ionic/react';
-import { routerActions } from 'business/_actions';
+import { routerActions } from 'business/actions';
 import store from 'business/store';
 
 interface AsLoadingViewProps {

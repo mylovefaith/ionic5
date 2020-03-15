@@ -13,7 +13,14 @@ import {
 } from '@ionic/react';
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { homeOutline, homeSharp, personOutline, personSharp, bookmark, logOutOutline } from 'ionicons/icons';
+import {
+  homeOutline,
+  homeSharp,
+  personOutline,
+  personSharp,
+  bookmark,
+  logOutOutline,
+} from 'ionicons/icons';
 
 import { ROUTES } from 'business/enums';
 import './styles.scss';

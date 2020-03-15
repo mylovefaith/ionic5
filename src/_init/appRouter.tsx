@@ -5,7 +5,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
 import Features from 'business/features';
-import { authAction } from 'business/_actions';
+import { authActions } from 'business/actions';
 import { ROUTES } from 'business/enums';
 import { Menu } from 'components';
 import { HomeScreen, GroupScreen, LoginScreen } from 'screens';
@@ -25,8 +25,18 @@ const Router: React.FC<RouterProps> = ({ isLoggedIn, currentRoute, onLogout }) =
         <IonSplitPane contentId="main">
           {Features.MENU && <Menu currentRoute={currentRoute} onLogout={onLogout} />}
           <IonRouterOutlet id="main">
-            <PrivateRoute path={ROUTES.HOME} component={HomeScreen} exact={true} isLoggedIn={isLoggedIn} />
-            <PrivateRoute path={ROUTES.GROUP} component={GroupScreen} exact={true} isLoggedIn={isLoggedIn} />
+            <PrivateRoute
+              path={ROUTES.HOME}
+              component={HomeScreen}
+              exact={true}
+              isLoggedIn={isLoggedIn}
+            />
+            <PrivateRoute
+              path={ROUTES.GROUP}
+              component={GroupScreen}
+              exact={true}
+              isLoggedIn={isLoggedIn}
+            />
             <Route path="/" render={() => <Redirect to={ROUTES.HOME} />} />
           </IonRouterOutlet>
         </IonSplitPane>
@@ -44,7 +54,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onLogout: authAction.logout,
+  onLogout: authActions.logout,
 };
 
 const connected = connect(mapStateToProps, mapDispatchToProps);

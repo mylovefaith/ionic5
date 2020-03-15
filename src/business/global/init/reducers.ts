@@ -1,11 +1,12 @@
 import { 
   InitModel, 
-  InitActionTypes, 
   LOAD_STORAGE, 
   FETCH_STORE_FAILURE, 
   FETCH_STORE_SUCCESS 
 } from "./types";
 import { DEFAULT_AUTH_TOKEN } from '../../enums';
+import { LOGIN_SUCCESS, LOGOUT_SUCCESS } from "../auth/types";
+import { AnyActionType } from "../../types";
 
 export const INITIAL_STATE:InitModel = {
   store: null,
@@ -20,7 +21,7 @@ export const INITIAL_STATE:InitModel = {
   }
 };
 
-export default function(state:InitModel = INITIAL_STATE, action: InitActionTypes) {
+export default function(state:InitModel = INITIAL_STATE, action: AnyActionType) {
   switch (action.type) {
     case LOAD_STORAGE: 
       return {
@@ -38,6 +39,22 @@ export default function(state:InitModel = INITIAL_STATE, action: InitActionTypes
         ...state,
         initSuccess: false,
         err: action.err,
+      } 
+    case LOGIN_SUCCESS: 
+      return { 
+        ...state, 
+        localStorage: {
+          ...state.localStorage,
+          authToken: action.payload.authToken
+        }
+      }
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        localStorage: {
+          ...state.localStorage,
+          authToken: DEFAULT_AUTH_TOKEN,
+        }
       }
     default:
       return state;

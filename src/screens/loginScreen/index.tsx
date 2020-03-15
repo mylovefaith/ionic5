@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { IonContent, IonPage, IonToast } from '@ionic/react';
 
-import { authAction } from 'business/_actions';
-import { ErrorType } from 'business/_types';
+import { authActions } from 'business/actions';
 import { Header, LoginForm } from 'components';
 import { loading } from 'hoc';
 
@@ -13,7 +12,7 @@ interface LoginScreenProps {
   authToken: string;
   login: Function;
   logout: Function;
-  error: ErrorType;
+  error: string;
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = React.memo(
@@ -34,7 +33,7 @@ const LoginScreen: React.FC<LoginScreenProps> = React.memo(
           isOpen={error !== null}
           duration={3000}
           color="danger"
-          message={error ? error.message : ''}
+          message={error || ''}
           position="top"
         />
       </IonPage>
@@ -47,12 +46,12 @@ const mapStateToProps = state => ({
   authToken: state.global.localStorage.authToken,
   isLoading: state.loading.isLoading,
   loadingText: 'Logging In...',
-  error: state.loading.error,
+  error: state.loading.err,
 });
 
 const mapDispatchToProps = {
-  login: authAction.login,
-  logout: authAction.logout,
+  login: authActions.login,
+  logout: authActions.logout,
 };
 
 const connected = connect(mapStateToProps, mapDispatchToProps);

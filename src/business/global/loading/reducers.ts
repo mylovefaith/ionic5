@@ -1,10 +1,12 @@
-export const INITIAL_STATE = {
+import { LoadingModel, LoadingActionType } from "./types";
+
+export const INITIAL_STATE:LoadingModel = {
   isLoading: false,
   loadingText: 'Loading...',
-  error: null,
+  err: null,
 };
 
-export default function(state = INITIAL_STATE, action) {
+export default function(state:LoadingModel = INITIAL_STATE, action:LoadingActionType):LoadingModel {
   const { type } = action;
   const isLoading = /(.*)(LOGGING|UPDATING|LOADING)(.*)/.exec(type);
   const hasLoaded = /(.*)_(SUCCESS|FAILURE)/.exec(type);
@@ -13,24 +15,21 @@ export default function(state = INITIAL_STATE, action) {
 
   if(isLoading) return {
     isLoading: true,
-    loadingText: action.payload || state.loadingText,
-    error: null,
+    loadingText: action.loadingText || state.loadingText,
+    err: null,
   }
 
   if(hasLoaded) {
     if(type.includes('FAILURE')) {
       return {
         ...INITIAL_STATE,
-        error: action.payload || {
-          err: 'Error',
-          message: 'Unknown error'
-        }
+        err: action.err || 'Unknown error'
       }
     }
 
     return {
       ...INITIAL_STATE,
-      error: null,
+      err: null,
     }
   }
 

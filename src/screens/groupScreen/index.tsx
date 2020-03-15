@@ -1,9 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
 
 import { loading } from 'hoc';
-import { groupAction } from 'business/_actions';
+import { groupActions } from 'business/actions';
 
 interface GroupScreenProps {
   isLoading;
@@ -35,8 +43,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onHydrate: () => groupAction.fetchGroup(1),
-  onDehydrate: groupAction.dehydrate,
+  onHydrate: () => groupActions.fetchGroup(1),
+  onDehydrate: groupActions.dehydrate,
 };
 
 const connected = connect(mapStateToProps, mapDispatchToProps);

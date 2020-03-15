@@ -10,8 +10,8 @@ export interface SetRouteType {
 
 export type RouterActionTypes = SetRouteType;
 
-// Reducer Type
+// Reducer Model
 export interface RouterModel {
-  currentRoute: ROUTES.types,
-  previousRoute: ROUTES.types,
+  currentRoute: ROUTES.types;
+  previousRoute: ROUTES.types;
 }

@@ -1,7 +1,8 @@
 import { apiService, localStorage, theme } from '../../services';
 import { API, THEMES, MODES } from '../../enums';
-import { InitActionTypes, FETCH_STORE_SUCCESS, FETCH_STORE_FAILURE, LOAD_STORAGE } from './types';
+import { FETCH_STORE_SUCCESS, FETCH_STORE_FAILURE, LOAD_STORAGE } from './types';
 import { Dispatch } from 'redux';
+import { AnyActionType } from '../../types';
 
 function restoreTheme({ mode, theme: localTheme}: {mode: MODES.types, theme: THEMES.types }) {   
   const { DARK_CLASS } = MODES;
@@ -11,7 +12,7 @@ function restoreTheme({ mode, theme: localTheme}: {mode: MODES.types, theme: THE
 }
 
 export function loadApp() {
-  return async (dispatch: Dispatch<InitActionTypes>, getState) => { 
+  return async (dispatch: Dispatch<AnyActionType>, getState) => { 
     // await GET LOCAL STORAGE
     const storageData = await localStorage.getStorageData();
 
