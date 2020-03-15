@@ -42,7 +42,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{tx,js,tsx}\"",
-    "format": "prettier --write \"src/**/*.{tx,js,tsx,scss,json}\"",
+    "format": "prettier --config .prettierrc --write \"src/**/*.{tx,js,tsx,scss,json}\"",
     "clean-start": "rm -rf ./node_modules && yarn install && watchman watch-del-all",
     "android": "ionic capacitor run android -l --address=0.0.0.0",
     "ios": "ionic capacitor run ios -l",

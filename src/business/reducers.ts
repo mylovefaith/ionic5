@@ -6,11 +6,11 @@ import { routerReducer } from './global/router';
 
 import { groupReducer } from './screens/group';
 
-const appReducer = combineReducers({ 
-  global: initReducer, 
+const appReducer = combineReducers({
+  global: initReducer,
   loading: loadingReducer,
-  routing: routerReducer, 
-  group: groupReducer, 
+  routing: routerReducer,
+  group: groupReducer,
 });
 
 export default appReducer;

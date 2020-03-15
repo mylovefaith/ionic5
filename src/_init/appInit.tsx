@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { Dialog } from 'components';
 import { initActions as loadAppAction } from 'business/actions';
+import { LoadingModel } from 'business/global/loading/types';
 import Router from './appRouter';
 
 import 'theme/general.scss';
@@ -11,13 +12,16 @@ import 'theme/general.scss';
 interface AppInitProps {
   initSuccess: boolean;
   loadApp: Function;
+  loading: LoadingModel;
 }
 
 /* Perform necessary action when the app is loaded before UI gets shown */
-const AppInit: React.FC<AppInitProps> = ({ loadApp, initSuccess }) => {
+const AppInit: React.FC<AppInitProps> = ({ loadApp, initSuccess, loading }) => {
   useEffect(() => {
     loadApp();
   }, []);
+
+  const { isLoading, loadingText, err } = loading;
 
   if (initSuccess === false) {
     Dialog.alert({
@@ -27,14 +31,17 @@ const AppInit: React.FC<AppInitProps> = ({ loadApp, initSuccess }) => {
     return null;
   }
 
-  // Should display loading
-  if (!initSuccess) return <IonLoading isOpen={true} message={'Initializing App...'} />;
-
-  return <Router />;
+  return (
+    <>
+      <IonLoading isOpen={isLoading} message={loadingText} />
+      {initSuccess && <Router />}
+    </>
+  );
 };
 
 const mapStateToProps = state => ({
   initSuccess: state.global.initSuccess,
+  loading: state.loading,
 });
 
 const mapDispatchToProps = {

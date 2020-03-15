@@ -10,11 +10,10 @@ import {
   IonToolbar,
 } from '@ionic/react';
 
-import { loading } from 'hoc';
+import { screen } from 'hoc';
 import { groupActions } from 'business/actions';
 
 interface GroupScreenProps {
-  isLoading;
   onHydrate;
   onDehydrate;
   group;
@@ -39,7 +38,6 @@ const GroupScreen: React.FC<GroupScreenProps> = ({ group }) => {
 
 const mapStateToProps = state => ({
   group: state.group,
-  isLoading: state.loading.isLoading,
 });
 
 const mapDispatchToProps = {
@@ -49,4 +47,4 @@ const mapDispatchToProps = {
 
 const connected = connect(mapStateToProps, mapDispatchToProps);
 
-export default connected(loading(GroupScreen));
+export default connected(screen(GroupScreen));

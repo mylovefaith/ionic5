@@ -33,12 +33,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
           <Form>
             <h4>Login</h4>
             <TextInput icon={mailOutline} name="email" placeholder="Email address" type="email" />
-            <TextInput
-              icon={lockClosedOutline}
-              name="password"
-              placeholder="Password"
-              type="password"
-            />
+            <TextInput icon={lockClosedOutline} name="password" placeholder="Password" type="password" />
             <IonButton expand="full" type="submit" disabled={!isValid || isSubmitting}>
               Login
             </IonButton>

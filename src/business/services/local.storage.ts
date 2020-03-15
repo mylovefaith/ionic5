@@ -21,12 +21,12 @@ export const getStorageData = async (): Promise<LocalStorageModel> => {
     Storage.get({ key: THEME }),
   ]);
 
-  const storeId = await Number(response[0].value) || 1;
-  const userId = await Number(response[1].value) || null;
-  const deviceId = await response[2].value || null;
-  const authToken = await response[3].value || null;
-  const mode = await response[4].value as MODES.types || null;
-  const theme = await response[5].value as THEMES.types || null;
+  const storeId = (await Number(response[0].value)) || 1;
+  const userId = (await Number(response[1].value)) || null;
+  const deviceId = (await response[2].value) || null;
+  const authToken = (await response[3].value) || null;
+  const mode = ((await response[4].value) as MODES.types) || null;
+  const theme = ((await response[5].value) as THEMES.types) || null;
 
   return {
     storeId,
@@ -35,30 +35,30 @@ export const getStorageData = async (): Promise<LocalStorageModel> => {
     authToken: DEFAULT_AUTH_TOKEN || authToken,
     mode,
     theme,
-  }
-}
+  };
+};
 
 export const setStoreId = async (storeId: number) => {
-  await Storage.set({ key: STORE_ID, value: storeId.toString()});
-}
+  await Storage.set({ key: STORE_ID, value: storeId.toString() });
+};
 
 export const setUserId = async (userId: number) => {
-  await Storage.set({ key: USER_ID, value: userId.toString()});
-}
+  await Storage.set({ key: USER_ID, value: userId.toString() });
+};
 
 export const setAuthToken = async (authToken: string) => {
   await Storage.set({ key: AUTH_TOKEN, value: authToken });
-}
+};
 
-export const getStorageItem = async(key: string) => {
+export const getStorageItem = async (key: string) => {
   await Storage.get({ key });
-}
+};
 
-export const setStorageItem = async(key: string, item: string) => {
+export const setStorageItem = async (key: string, item: string) => {
   await Storage.set({ key, value: item });
-}
+};
 
 export const clearAuth = async () => {
   await Storage.remove({ key: USER_ID });
   await Storage.remove({ key: AUTH_TOKEN });
-}
+};

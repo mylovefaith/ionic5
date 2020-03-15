@@ -1,4 +1,4 @@
-import loading from './loading';
+import screen from './screen';
 
-// @ts-ignore 
-export { loading };
+// @ts-ignore
+export { screen };

@@ -8,7 +8,7 @@ export const FETCH_STORE_FAILURE = 'FETCH_STORE_FAILURE';
 export interface LoadStorageType {
   type: typeof LOAD_STORAGE;
   localStorage: LocalStorageModel;
-};
+}
 
 export interface FetchStoreSuccessType {
   type: typeof FETCH_STORE_SUCCESS;
@@ -29,7 +29,7 @@ export interface LocalStorageModel {
   deviceId: string;
   authToken: string;
   mode: MODES.types;
-  theme: THEMES.types; 
+  theme: THEMES.types;
 }
 
 export interface StoreModel {

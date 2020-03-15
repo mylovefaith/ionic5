@@ -4,7 +4,7 @@ import { IonContent, IonPage, IonToast } from '@ionic/react';
 
 import { authActions } from 'business/actions';
 import { Header, LoginForm } from 'components';
-import { loading } from 'hoc';
+import { screen } from 'hoc';
 
 import './styles.scss';
 
@@ -39,13 +39,11 @@ const LoginScreen: React.FC<LoginScreenProps> = React.memo(
       </IonPage>
     );
   },
-  (pp, np) => pp.error === np.error
+  (pp, np) => pp.error === np.error,
 );
 
 const mapStateToProps = state => ({
   authToken: state.global.localStorage.authToken,
-  isLoading: state.loading.isLoading,
-  loadingText: 'Logging In...',
   error: state.loading.err,
 });
 
@@ -56,4 +54,4 @@ const mapDispatchToProps = {
 
 const connected = connect(mapStateToProps, mapDispatchToProps);
 
-export default connected(loading(LoginScreen));
+export default connected(screen(LoginScreen));

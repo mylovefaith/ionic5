@@ -25,18 +25,8 @@ const Router: React.FC<RouterProps> = ({ isLoggedIn, currentRoute, onLogout }) =
         <IonSplitPane contentId="main">
           {Features.MENU && <Menu currentRoute={currentRoute} onLogout={onLogout} />}
           <IonRouterOutlet id="main">
-            <PrivateRoute
-              path={ROUTES.HOME}
-              component={HomeScreen}
-              exact={true}
-              isLoggedIn={isLoggedIn}
-            />
-            <PrivateRoute
-              path={ROUTES.GROUP}
-              component={GroupScreen}
-              exact={true}
-              isLoggedIn={isLoggedIn}
-            />
+            <PrivateRoute path={ROUTES.HOME} component={HomeScreen} exact={true} isLoggedIn={isLoggedIn} />
+            <PrivateRoute path={ROUTES.GROUP} component={GroupScreen} exact={true} isLoggedIn={isLoggedIn} />
             <Route path="/" render={() => <Redirect to={ROUTES.HOME} />} />
           </IonRouterOutlet>
         </IonSplitPane>
