@@ -1,27 +1,23 @@
 import * as Color from 'color';
 import { setStorageItem } from './local.storage';
+import { THEMES, MODES } from '../enums';
 
-export const DARK_THEME_CLASS = 'dark-theme';
-export const LIGHT_THEME_CLASS = 'light-theme';
-
-export const DEFAULT = 'default';
-export const AUTUMN = 'autumn';
-export const NIGHT = 'night';
-export const NEON = 'neon';
+const { DARK_CLASS, LIGHT_CLASS } = MODES;
+const { DEFAULT, AUTUMN, NIGHT, NEON } = THEMES;
 
 export function switchDarkMode(isDark) {
   const { classList } = document.body;
 
   if(isDark) {
-    classList.remove(LIGHT_THEME_CLASS)
-    classList.add(DARK_THEME_CLASS);
+    classList.remove(LIGHT_CLASS)
+    classList.add(DARK_CLASS);
   } else {
-    classList.remove(DARK_THEME_CLASS)
-    classList.add(LIGHT_THEME_CLASS);
+    classList.remove(DARK_CLASS)
+    classList.add(LIGHT_CLASS);
   }
 
   // TODO: Store the saved theme to local storage
-  setStorageItem('mode', isDark ? DARK_THEME_CLASS : LIGHT_THEME_CLASS);
+  setStorageItem('mode', isDark ? DARK_CLASS : LIGHT_CLASS);
 }
 
 export function switchTheme(theme) {

@@ -1,4 +1,4 @@
-import { t } from '../actions';
+import { t } from '../_actions';
 import { DEFAULT_AUTH_TOKEN } from '../enums';
 
 export const INITIAL_STATE = {

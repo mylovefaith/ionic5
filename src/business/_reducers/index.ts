@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 
-import globalReducer from './global';
+import { initReducer } from '../global/init';
 import loadingReducer from './loading';
-import routingReducer from './routing';
+import { routerReducer } from '../global/router';
 import groupReducer from './group';
 
 const appReducer = combineReducers({ 
-  global: globalReducer, 
+  global: initReducer, 
   group: groupReducer, 
   loading: loadingReducer,
-  routing: routingReducer, 
+  routing: routerReducer, 
 });
 
 export default appReducer;

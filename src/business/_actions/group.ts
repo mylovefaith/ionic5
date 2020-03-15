@@ -1,4 +1,4 @@
-import { t } from './';
+import { t } from '.';
 
 export function fetchGroup(groupId) {
   return async dispatch => {

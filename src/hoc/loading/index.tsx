@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { IonLoading, withIonLifeCycle } from '@ionic/react';
-import { routeAction } from 'business/actions';
+import { routerActions } from 'business/_actions';
 import store from 'business/store';
 
 interface AsLoadingViewProps {
@@ -22,7 +22,7 @@ const loading = LoadingView => {
 
     ionViewWillEnter() {
       const { match } = this.props;
-      if (match && match.path) store.dispatch(routeAction.route(match.path));
+      if (match && match.path) store.dispatch(routerActions.setRoute(match.path));
       if (this.props.onHydrate) this.props.onHydrate();
     }
 

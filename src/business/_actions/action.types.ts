@@ -1,15 +1,13 @@
 export const LOADING = 'LOADING';
 export const UPDATING = 'UPDATING';
 export const PROCESSING = 'PROCESSING';
-export const LOGGING_IN = 'LOGGING_IN'
-export const LOGGING_OUT = 'LOGGING_OUT'
 
 export const LOAD_STORAGE = 'LOAD_STORAGE';
-export const ROUTE = 'ROUTE';
-
 export const FETCH_STORE_SUCCESS = 'FETCH_STORE_SUCCESS';
 export const FETCH_STORE_FAILURE = 'FETCH_STORE_FAILURE';
 
+export const LOGGING_IN = 'LOGGING_IN'
+export const LOGGING_OUT = 'LOGGING_OUT'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
@@ -20,4 +18,3 @@ export const FETCH_GROUP_FAILURE = 'FETCH_GROUP_FAILURE';
 export const CLEAN_GROUP = 'CLEAN_GROUP';
 
 export const LOAD_USER = 'LOAD_USER';
-

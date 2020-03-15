@@ -5,7 +5,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
 import Features from 'business/features';
-import { authAction } from 'business/actions';
+import { authAction } from 'business/_actions';
 import { ROUTES } from 'business/enums';
 import { Menu } from 'components';
 import { HomeScreen, GroupScreen, LoginScreen } from 'screens';

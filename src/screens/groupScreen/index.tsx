@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 import { loading } from 'hoc';
-import { groupAction } from 'business/actions';
+import { groupAction } from 'business/_actions';
 
 interface GroupScreenProps {
   isLoading;

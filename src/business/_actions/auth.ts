@@ -1,7 +1,8 @@
 import { localStorage } from '../services';
 import { ROUTES } from '../enums';
 
-import { t } from './';
+import { t } from '.';
+import { routerTypes } from '../_types';
 
 export function login({email, password}) {
   return async dispatch => {
@@ -9,7 +10,7 @@ export function login({email, password}) {
       type: t.LOGGING_IN
     })
 
-    const LOGIN_SUCCESS_SIMULATION = false;
+    const LOGIN_SUCCESS_SIMULATION = true;
 
     if(LOGIN_SUCCESS_SIMULATION) {
       // Simulate login success
@@ -60,7 +61,7 @@ export function logout() {
     })
 
     dispatch({
-      type: t.ROUTE,
+      type: routerTypes.SET_ROUTE,
       payload: ROUTES.LOGIN
     })
   }

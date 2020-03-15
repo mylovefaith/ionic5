@@ -1,5 +1,6 @@
 import { Plugins } from '@capacitor/core';
-import { DEFAULT_AUTH_TOKEN } from '../enums';
+import { DEFAULT_AUTH_TOKEN, MODES, THEMES } from '../enums';
+import { LocalStorageModel } from '../global/init/types';
 
 const { Storage } = Plugins;
 
@@ -10,7 +11,7 @@ const AUTH_TOKEN = 'authToken';
 const MODE = 'mode'; // Light or Dark theme
 const THEME = 'theme';
 
-export const getStorageData = async () => {
+export const getStorageData = async (): Promise<LocalStorageModel> => {
   const response = await Promise.all([
     Storage.get({ key: STORE_ID }),
     Storage.get({ key: USER_ID }),
@@ -20,12 +21,12 @@ export const getStorageData = async () => {
     Storage.get({ key: THEME }),
   ]);
 
-  const storeId = await response[0].value || 1;
-  const userId = await response[1].value || null;
+  const storeId = await Number(response[0].value) || 1;
+  const userId = await Number(response[1].value) || null;
   const deviceId = await response[2].value || null;
   const authToken = await response[3].value || null;
-  const mode = await response[4].value || null;
-  const theme = await response[5].value || null;
+  const mode = await response[4].value as MODES.types || null;
+  const theme = await response[5].value as THEMES.types || null;
 
   return {
     storeId,

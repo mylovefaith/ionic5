@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { IonButtons, IonButton, IonContent, IonPage, IonItem, IonLabel, IonToggle } from '@ionic/react';
 
 import { theme } from 'business/services';
+import { THEMES } from 'business/enums';
 import { Dialog, Header } from 'components';
 import { loading } from 'hoc';
 
@@ -13,7 +14,7 @@ const HomeScreen: React.FC<OwnProps> = () => {
     theme.switchDarkMode(detail.checked);
   };
 
-  const { DEFAULT, AUTUMN, NIGHT, NEON } = theme;
+  const { DEFAULT, AUTUMN, NIGHT, NEON } = THEMES;
 
   return (
     <IonPage>

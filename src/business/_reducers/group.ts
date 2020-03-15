@@ -1,4 +1,4 @@
-import { t } from '../actions';
+import { t } from '../_actions';
 
 export const INITIAL_STATE = null;
 

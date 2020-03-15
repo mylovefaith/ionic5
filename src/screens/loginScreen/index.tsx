@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { IonContent, IonPage, IonToast } from '@ionic/react';
 
-import { authAction } from 'business/actions';
-import { ErrorType } from 'business/types';
+import { authAction } from 'business/_actions';
+import { ErrorType } from 'business/_types';
 import { Header, LoginForm } from 'components';
 import { loading } from 'hoc';
 

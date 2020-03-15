@@ -1,11 +1,11 @@
 import { apiService, localStorage, theme } from '../services';
-import { t } from './';
-import { DEFAULT_AUTH_TOKEN, API } from '../enums';
+import { t } from '.';
+import { DEFAULT_AUTH_TOKEN, API, THEMES, MODES } from '../enums';
 
 function restoreTheme({ mode, theme: localTheme}) {   
-  const { DARK_THEME_CLASS }= theme;
+  const { DARK_CLASS }= MODES;
 
-  theme.switchDarkMode(mode === DARK_THEME_CLASS);
+  theme.switchDarkMode(mode === DARK_CLASS);
   theme.switchTheme(localTheme);
 }
 

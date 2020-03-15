@@ -3,7 +3,7 @@ import { IonLoading } from '@ionic/react';
 import { connect } from 'react-redux';
 
 import { Dialog } from 'components';
-import { loadApp as loadAppAction } from 'business/actions';
+import { initActions as loadAppAction } from 'business/_actions';
 import Router from './appRouter';
 
 import 'theme/general.scss';
@@ -35,7 +35,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  loadApp: loadAppAction,
+  loadApp: loadAppAction.loadApp,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppInit);
