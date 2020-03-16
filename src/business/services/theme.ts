@@ -23,10 +23,9 @@ export function switchDarkMode(isDark) {
 export function switchTheme(theme) {
   const cssText = theme === DEFAULT ? '' : CSSTextGenerator(theme);
 
-  if(cssText === null) return;
-
   const rootEl = document.getElementById("root");
-  rootEl.style.cssText = cssText;
+  if(rootEl)
+    rootEl.style.cssText = cssText;
 
   // TODO: Store the saved theme to local storage
   setStorageItem('theme', theme);
@@ -77,7 +76,7 @@ function contrast(color, ratio = 0.8) {
 
 function CSSTextGenerator(key) {
   const newColorset = themes[key];
-  if(!newColorset) return null;
+  if(!newColorset) return '';
 
   const colors = { ...themes[DEFAULT], ...newColorset };
   const { primary, secondary, tertiary, success, warning, danger, dark, medium, light } = colors;

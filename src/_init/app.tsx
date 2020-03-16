@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { IonApp } from '@ionic/react';
 
-import store from 'business/store';
+import store from '$redux';
 import AppInit from './appInit';
 
 /* Core CSS required for Ionic components to work properly */

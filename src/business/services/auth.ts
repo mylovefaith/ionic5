@@ -1,13 +1,13 @@
-import store from '../store';
+import store from '../redux';
 
 export const getAuthToken = (): string => {
-  const { global } = store.getState();
+  const { init } = store.getState();
 
-  return global.localStorage.authToken;
+  return init.localStorage.authToken;
 };
 
 export const isLoggedIn = (): boolean => {
-  const { global } = store.getState();
+  const { init } = store.getState();
 
-  return global.localStorage.authToken !== null;
+  return init.localStorage.authToken !== '';
 };

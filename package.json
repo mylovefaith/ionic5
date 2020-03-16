@@ -69,10 +69,11 @@
   },
   "_moduleAliases": {
     "~root": ".",
-    "business": "src/business",
-    "screens": "src/screens",
-    "components": "src/components",
-    "hoc": "src/hoc",
-    "theme": "src/theme"
+    "$business": "src/business",
+    "$redux": "src/business/redux",
+    "$screens": "src/screens",
+    "$components": "src/components",
+    "$hoc": "src/hoc",
+    "$theme": "src/theme"
   }
 }

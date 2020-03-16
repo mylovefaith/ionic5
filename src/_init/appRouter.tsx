@@ -4,11 +4,11 @@ import { IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
-import Features from 'business/features';
-import { authActions } from 'business/actions';
-import { ROUTES } from 'business/enums';
-import { Menu } from 'components';
-import { HomeScreen, GroupScreen, LoginScreen } from 'screens';
+import Features from '$business/features';
+import { ROUTES } from '$business/enums';
+import { authActions } from '$redux/actions';
+import { Menu } from '$components';
+import { HomeScreen, GroupScreen, LoginScreen } from '$screens';
 
 import PrivateRoute from './privateRoute';
 
@@ -47,7 +47,7 @@ const Router: React.FC<RouterProps> = React.memo(
 );
 
 const mapStateToProps = state => ({
-  isLoggedIn: state.global.localStorage.authToken !== null,
+  isLoggedIn: state.init.localStorage.authToken !== '',
   currentRoute: state.routing.currentRoute,
 });
 

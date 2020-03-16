@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withIonLifeCycle } from '@ionic/react';
-import { routerActions } from 'business/actions';
-import store from 'business/store';
+import { routerActions } from '$redux/actions';
+import store from '$redux';
 
 interface AsScreenViewProps {
   onHydrate?: Function;
@@ -12,8 +12,8 @@ interface AsScreenViewProps {
 const screen = ScreenView => {
   class AsScreenView extends Component<AsScreenViewProps> {
     static defaultProps: AsScreenViewProps = {
-      onHydrate: null,
-      onDehydrate: null,
+      onHydrate: () => {},
+      onDehydrate: () => {},
     };
 
     ionViewWillEnter() {

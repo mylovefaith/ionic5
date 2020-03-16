@@ -3,7 +3,7 @@ import { IonButton } from '@ionic/react';
 import { Formik, Form } from 'formik';
 import { mailOutline, lockClosedOutline } from 'ionicons/icons';
 
-import { TextInput } from 'components';
+import { TextInput } from '$components';
 
 import './styles.scss';
 

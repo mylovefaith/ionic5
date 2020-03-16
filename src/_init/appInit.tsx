@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { IonLoading } from '@ionic/react';
 import { connect } from 'react-redux';
 
-import { Dialog } from 'components';
-import { initActions as loadAppAction } from 'business/actions';
-import { LoadingModel } from 'business/global/loading/types';
+import { initActions as loadAppAction } from '$redux/actions';
+import { LoadingModel } from '$redux/loading/types';
+import { Dialog } from '$components';
 import Router from './appRouter';
 
-import 'theme/general.scss';
+import '$theme/general.scss';
 
 interface AppInitProps {
   initSuccess: boolean;
@@ -23,9 +23,9 @@ const AppInit: React.FC<AppInitProps> = props => {
     loadApp();
   }, [loadApp]);
 
-  const { isLoading, loadingText, err } = loading;
+  const { isLoading, loadingText, hasError } = loading;
 
-  if (initSuccess === false || err !== null) {
+  if (initSuccess === false && hasError) {
     Dialog.alert({
       title: 'Network Error',
       message: 'App failed to initialize. Please try again later.',
@@ -42,7 +42,7 @@ const AppInit: React.FC<AppInitProps> = props => {
 };
 
 const mapStateToProps = state => ({
-  initSuccess: state.global.initSuccess,
+  initSuccess: state.init.initSuccess,
   loading: state.loading,
 });
 

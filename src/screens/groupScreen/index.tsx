@@ -10,8 +10,8 @@ import {
   IonToolbar,
 } from '@ionic/react';
 
-import { screen } from 'hoc';
-import { groupActions } from 'business/actions';
+import { screen } from '$hoc';
+import { groupActions } from '$redux/actions';
 
 interface GroupScreenProps {
   onHydrate;

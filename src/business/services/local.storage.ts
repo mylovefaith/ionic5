@@ -1,6 +1,6 @@
 import { Plugins } from '@capacitor/core';
 import { DEFAULT_AUTH_TOKEN, MODES, THEMES } from '../enums';
-import { LocalStorageModel } from '../global/init/types';
+import { LocalStorageModel } from '../redux/init/types';
 
 const { Storage } = Plugins;
 
@@ -22,11 +22,11 @@ export const getStorageData = async (): Promise<LocalStorageModel> => {
   ]);
 
   const storeId = (await Number(response[0].value)) || 1;
-  const userId = (await Number(response[1].value)) || null;
-  const deviceId = (await response[2].value) || null;
-  const authToken = (await response[3].value) || null;
-  const mode = ((await response[4].value) as MODES.types) || null;
-  const theme = ((await response[5].value) as THEMES.types) || null;
+  const userId = (await Number(response[1].value)) || 0;
+  const deviceId = (await response[2].value) || '';
+  const authToken = (await response[3].value) || '';
+  const mode = ((await response[4].value) as MODES.types) || MODES.LIGHT_CLASS;
+  const theme = ((await response[5].value) as THEMES.types) || THEMES.DEFAULT;
 
   return {
     storeId,

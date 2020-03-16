@@ -1,8 +1,8 @@
-import store from '../store';
+import store from '../redux';
 
 export const authPost = async (url, param = {}) => {
   const state = store.getState()
-  const { localStorage: { storeId, deviceId, userId, authToken } } = state.global;
+  const { localStorage: { storeId, deviceId, userId, authToken } } = state.init;
 
   const options = {
     method: "POST",
@@ -10,9 +10,9 @@ export const authPost = async (url, param = {}) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: authToken,
-      storeId: storeId ? storeId.toString() : null,
-      deviceId: deviceId ? deviceId.toString() : null,
-      userId: userId ? userId.toString(): null,
+      storeId: storeId ? storeId.toString() : '',
+      deviceId: deviceId ? deviceId.toString() : '',
+      userId: userId ? userId.toString(): '',
     },
     body: JSON.stringify(param)
   }
@@ -25,15 +25,15 @@ export const authPost = async (url, param = {}) => {
 
 export const fetchPost = async (url, param = {}) => {
   const state = store.getState()
-  const { localStorage: { storeId, deviceId } } = state.global;
+  const { localStorage: { storeId, deviceId } } = state.init;
 
   const options = {
     method: "POST",
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      storeId: storeId ? storeId.toString() : null,
-      deviceId: deviceId ? deviceId.toString() : null,
+      storeId: storeId ? storeId.toString() : '',
+      deviceId: deviceId ? deviceId.toString() : '',
     },
     body: JSON.stringify(param)
   }

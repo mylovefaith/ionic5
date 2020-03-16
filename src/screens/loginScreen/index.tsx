@@ -2,20 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { IonContent, IonPage, IonToast } from '@ionic/react';
 
-import { authActions } from 'business/actions';
-import { Header, LoginForm } from 'components';
-import { screen } from 'hoc';
+import { authActions } from '$redux/actions';
+import { Header, LoginForm } from '$components';
+import { screen } from '$hoc';
 
 import './styles.scss';
+import { LoadingModel } from '$redux/loading/types';
 
 interface LoginScreenProps {
   login: Function;
-  error: string;
+  loading: LoadingModel;
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = React.memo(
-  ({ login, error }) => {
+  ({ login, loading }) => {
     const onSubmit = values => login(values);
+    const { hasError, err } = loading;
 
     return (
       <IonPage id="login-screen">
@@ -23,21 +25,15 @@ const LoginScreen: React.FC<LoginScreenProps> = React.memo(
         <IonContent>
           <LoginForm onSubmit={onSubmit} />
         </IonContent>
-        <IonToast
-          isOpen={error !== null}
-          duration={3000}
-          color="danger"
-          message={error || ''}
-          position="top"
-        />
+        <IonToast isOpen={hasError} duration={3000} color="danger" message={err} position="top" />
       </IonPage>
     );
   },
-  (pp, np) => pp.error === np.error,
+  (pp, np) => pp.loading.hasError === np.loading.hasError,
 );
 
 const mapStateToProps = state => ({
-  error: state.loading.err,
+  loading: state.loading,
 });
 
 const mapDispatchToProps = {
