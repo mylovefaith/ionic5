@@ -3,21 +3,21 @@ export const FETCH_GROUP_FAILURE = 'FETCH_GROUP_FAILURE';
 export const CLEAN_GROUP = 'CLEAN_GROUP';
 
 // Action Types
-export interface fetchGroupSuccessType {
+export interface FetchGroupSuccessType {
   type: typeof FETCH_GROUP_SUCCESS;
   group: GroupModel;
 };
 
-export interface fetchGroupFailureType {
+export interface FetchGroupFailureType {
   type: typeof FETCH_GROUP_FAILURE;
   err: string;
 }
 
-export interface cleanGroupType {
+export interface CleanGroupType {
   type: typeof CLEAN_GROUP;
 }
 
-export type GroupActionTypes = fetchGroupSuccessType | fetchGroupFailureType | cleanGroupType;
+export type GroupActionTypes = FetchGroupSuccessType | FetchGroupFailureType | CleanGroupType;
 
 // Reducer Model
 export interface GroupModel {

@@ -18,25 +18,33 @@ interface RouterProps {
   onLogout: Function;
 }
 
-const Router: React.FC<RouterProps> = ({ isLoggedIn, currentRoute, onLogout }) => {
-  return (
-    <IonReactRouter basename={process.env.REACT_APP_PUBLIC_URL}>
-      {isLoggedIn && (
-        <IonSplitPane contentId="main">
-          {Features.MENU && <Menu currentRoute={currentRoute} onLogout={onLogout} />}
-          <IonRouterOutlet id="main">
-            <PrivateRoute path={ROUTES.HOME} component={HomeScreen} exact={true} isLoggedIn={isLoggedIn} />
-            <PrivateRoute path={ROUTES.GROUP} component={GroupScreen} exact={true} isLoggedIn={isLoggedIn} />
-            <Route path="/" render={() => <Redirect to={ROUTES.HOME} />} />
-          </IonRouterOutlet>
-        </IonSplitPane>
-      )}
+const Router: React.FC<RouterProps> = React.memo(
+  ({ isLoggedIn, currentRoute, onLogout }) => {
+    return (
+      <IonReactRouter basename={process.env.REACT_APP_PUBLIC_URL}>
+        {isLoggedIn && (
+          <IonSplitPane contentId="main">
+            {Features.MENU && <Menu currentRoute={currentRoute} onLogout={onLogout} />}
+            <IonRouterOutlet id="main">
+              <PrivateRoute path={ROUTES.HOME} component={HomeScreen} exact={true} isLoggedIn={isLoggedIn} />
+              <PrivateRoute
+                path={ROUTES.GROUP}
+                component={GroupScreen}
+                exact={true}
+                isLoggedIn={isLoggedIn}
+              />
+              <Route path="/" render={() => <Redirect to={ROUTES.HOME} />} />
+            </IonRouterOutlet>
+          </IonSplitPane>
+        )}
 
-      <Route path={ROUTES.LOGIN} component={LoginScreen} exact={true} />
-      {!isLoggedIn && <Route path="/" render={() => <Redirect to={ROUTES.LOGIN} />} />}
-    </IonReactRouter>
-  );
-};
+        <Route path={ROUTES.LOGIN} component={LoginScreen} exact={true} />
+        {!isLoggedIn && <Route path="/" render={() => <Redirect to={ROUTES.LOGIN} />} />}
+      </IonReactRouter>
+    );
+  },
+  (pp, np) => pp.isLoggedIn === np.isLoggedIn,
+);
 
 const mapStateToProps = state => ({
   isLoggedIn: state.global.localStorage.authToken !== null,

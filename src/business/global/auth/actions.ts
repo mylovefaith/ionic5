@@ -23,6 +23,12 @@ export function login({ email, password }: { email: string; password: string }) 
     if (LOGIN_SUCCESS_SIMULATION) {
       const fakeResponse: LoginResponseType = {
         authToken: 'testauthtoken',
+        user: {
+          id: 1,
+          email: 'mylovefaith@gmail.com',
+          firstName: 'Peter',
+          lastName: 'Yoon',
+        }
       };
 
       await localStorage.setAuthToken(fakeResponse.authToken);

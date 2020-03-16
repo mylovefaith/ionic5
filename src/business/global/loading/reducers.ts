@@ -1,4 +1,4 @@
-import { LoadingModel, LoadingActionType } from './types';
+import { LoadingModel, LoadingActionTypes } from './types';
 
 export const INITIAL_STATE: LoadingModel = {
   isLoading: false,
@@ -8,7 +8,7 @@ export const INITIAL_STATE: LoadingModel = {
 
 export default function(
   state: LoadingModel = INITIAL_STATE,
-  action: LoadingActionType
+  action: LoadingActionTypes
 ): LoadingModel {
   const { type } = action;
   const isLoading = /(.*)(LOGGING|UPDATING|LOADING)(.*)/.exec(type);

@@ -1,3 +1,5 @@
+import { UserModel } from "../user/types";
+
 export const LOGGING_IN = 'LOGGING_IN'
 export const LOGGING_OUT = 'LOGGING_OUT'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -43,4 +45,5 @@ export type AuthActionTypes =
 
 export interface LoginResponseType {
   authToken: string;
+  user: UserModel
 } 

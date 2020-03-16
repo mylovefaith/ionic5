@@ -5,13 +5,42 @@ import { Dispatch } from 'redux';
 import { AnyActionType } from '../../types';
 import { AppModel } from '../../store';
 import { LOADING } from '../loading/types';
+import { SET_USER } from '../user/types';
 
 function restoreTheme({ mode, theme: localTheme }: { mode: MODES.types; theme: THEMES.types }) {
   const { DARK_CLASS } = MODES;
 
   theme.switchDarkMode(mode === DARK_CLASS);
-
   theme.switchTheme(localTheme);
+}
+
+async function loadStorage(dispatch) {
+  const storageData = await localStorage.getStorageData();
+
+  dispatch({
+    type: LOAD_STORAGE,
+    localStorage: storageData,
+  });
+}
+
+async function fetchStore(dispatch) {
+  const response = await apiService.fetchPost(API.INIT);
+  if (response.err) {
+    return dispatch({
+      type: FETCH_STORE_FAILURE,
+      err: response.err,
+    });
+  }
+
+  dispatch({
+    type: SET_USER,
+    user: response.user || null,
+  })
+
+  dispatch({
+    type: FETCH_STORE_SUCCESS,
+    store: response.store,
+  });
 }
 
 export function loadApp() {
@@ -19,29 +48,14 @@ export function loadApp() {
     dispatch({ 
       type: LOADING, loadingText: 'Initializing App...' });
 
-    // await GET LOCAL STORAGE
-    const storageData = await localStorage.getStorageData();
+    // Load LOCAL STORAGE
+    await loadStorage(dispatch);
 
-    dispatch({
-      type: LOAD_STORAGE,
-      localStorage: storageData,
-    });
-
+    // Load Theme
     const { global } = getState();
     restoreTheme(global.localStorage);
 
-    // await fetching initial store
-    const store = await apiService.fetchPost(API.INIT);
-    if (store.err) {
-      return dispatch({
-        type: FETCH_STORE_FAILURE,
-        err: store.err,
-      });
-    }
-
-    dispatch({
-      type: FETCH_STORE_SUCCESS,
-      store,
-    });
+    // Fetching initial store
+    await fetchStore(dispatch);
   };
 }

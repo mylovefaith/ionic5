@@ -16,14 +16,16 @@ interface AppInitProps {
 }
 
 /* Perform necessary action when the app is loaded before UI gets shown */
-const AppInit: React.FC<AppInitProps> = ({ loadApp, initSuccess, loading }) => {
+const AppInit: React.FC<AppInitProps> = props => {
+  const { loadApp, initSuccess, loading } = props;
+
   useEffect(() => {
     loadApp();
-  }, []);
+  }, [loadApp]);
 
   const { isLoading, loadingText, err } = loading;
 
-  if (initSuccess === false) {
+  if (initSuccess === false || err !== null) {
     Dialog.alert({
       title: 'Network Error',
       message: 'App failed to initialize. Please try again later.',

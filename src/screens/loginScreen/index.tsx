@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { IonContent, IonPage, IonToast } from '@ionic/react';
 
@@ -9,18 +9,12 @@ import { screen } from 'hoc';
 import './styles.scss';
 
 interface LoginScreenProps {
-  authToken: string;
   login: Function;
-  logout: Function;
   error: string;
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = React.memo(
-  ({ authToken, login, logout, error }) => {
-    useEffect(() => {
-      if (authToken) logout();
-    }, []);
-
+  ({ login, error }) => {
     const onSubmit = values => login(values);
 
     return (
@@ -43,13 +37,11 @@ const LoginScreen: React.FC<LoginScreenProps> = React.memo(
 );
 
 const mapStateToProps = state => ({
-  authToken: state.global.localStorage.authToken,
   error: state.loading.err,
 });
 
 const mapDispatchToProps = {
   login: authActions.login,
-  logout: authActions.logout,
 };
 
 const connected = connect(mapStateToProps, mapDispatchToProps);

@@ -7,7 +7,7 @@ export interface LoadingType {    // loading reducer
   err?: string;
 };
 
-export type LoadingActionType = LoadingType;
+export type LoadingActionTypes = LoadingType;
 
 // Reducer Model
 export interface LoadingModel {
