@@ -26,14 +26,10 @@ const Router: React.FC<RouterProps> = React.memo(
           <IonSplitPane contentId="main">
             {Features.MENU && <Menu currentRoute={currentRoute} onLogout={onLogout} />}
             <IonRouterOutlet id="main">
-              <PrivateRoute path={ROUTES.HOME} component={HomeScreen} exact={true} isLoggedIn={isLoggedIn} />
-              <PrivateRoute
-                path={ROUTES.GROUP}
-                component={GroupScreen}
-                exact={true}
-                isLoggedIn={isLoggedIn}
-              />
-              <Route path="/" render={() => <Redirect to={ROUTES.HOME} />} />
+              <PrivateRoute path={ROUTES.HOME} component={HomeScreen} isLoggedIn={isLoggedIn} />
+              <PrivateRoute path={ROUTES.GROUP} component={GroupScreen} isLoggedIn={isLoggedIn} />
+              <Route path={ROUTES.LOGIN} render={() => <Redirect to={ROUTES.HOME} />} />
+              <Route path="/" component={HomeScreen} />
             </IonRouterOutlet>
           </IonSplitPane>
         )}

@@ -1,3 +1,3 @@
-import Features from '../features'
+import Features from '../features';
 
 export const DEFAULT_AUTH_TOKEN = Features.AUTH ? '' : 'AUTHTOKEN';

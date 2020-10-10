@@ -1,9 +1,6 @@
 import { LoadingModel, LoadingActionTypes, LOADING_INIT_STATE } from './types';
 
-export default function(
-  state: LoadingModel = LOADING_INIT_STATE,
-  action: LoadingActionTypes
-): LoadingModel {
+export default function(state: LoadingModel = LOADING_INIT_STATE, action: LoadingActionTypes): LoadingModel {
   const { type } = action;
   const isLoading = /(.*)(LOGGING|UPDATING|LOADING)(.*)/.exec(type);
   const hasLoaded = /(.*)_(SUCCESS|FAILURE)/.exec(type);

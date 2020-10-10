@@ -6,7 +6,7 @@ export const SET_ROUTE = 'SET_ROUTE';
 export interface SetRouteType {
   type: typeof SET_ROUTE;
   path: ROUTES.types;
-};
+}
 
 export type RouterActionTypes = SetRouteType;
 
@@ -16,7 +16,7 @@ export interface RouterModel {
   previousRoute: ROUTES.types;
 }
 
-export const ROUTER_INIT_STATE:RouterModel = {
+export const ROUTER_INIT_STATE: RouterModel = {
   currentRoute: ROUTES.EMPTY,
   previousRoute: ROUTES.EMPTY,
-}
+};

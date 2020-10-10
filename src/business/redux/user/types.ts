@@ -4,8 +4,8 @@ export const CLEAN_USER = 'CLEAN_USER';
 // Action Types
 export interface SetUserType {
   type: typeof SET_USER;
-  user: UserModel
-};
+  user: UserModel;
+}
 
 export interface CleanUserType {
   type: typeof CLEAN_USER;
@@ -26,4 +26,4 @@ export const USER_INIT_STATE = {
   email: '',
   firstName: '',
   lastName: '',
-}
+};

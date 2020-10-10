@@ -2673,6 +2673,11 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
+comlink@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/comlink/-/comlink-4.2.0.tgz#be9e968a19d797a44a042cf1eac03775d2ed39fe"
+  integrity sha512-33hF3yYzZicIWLREuvluTGSZkbAXYwRmrA9IYQo0/P+0O45qgvzR0FHX4tRZztObFMTs/RhnN0G0UBNDAZSiCg==
+
 commander@^2.11.0, commander@^2.12.2, commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
@@ -9938,11 +9943,25 @@ worker-farm@^1.7.0:
   dependencies:
     errno "~0.1.7"
 
+worker-plugin@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/worker-plugin/-/worker-plugin-4.0.2.tgz#0456dd7af1c0de64591326fd8a08c5d9f2b5b27a"
+  integrity sha512-V+1zSZMOOKk+uBzKyNIODLQLsx59zSIOaI75J1EMS0iR1qy+KQR3y/pQ3T0vIhvPfDFapGRMsoMvQNEL3okqSA==
+  dependencies:
+    loader-utils "^1.1.0"
+
 worker-rpc@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/worker-rpc/-/worker-rpc-0.1.1.tgz#cb565bd6d7071a8f16660686051e969ad32f54d5"
   dependencies:
     microevent.ts "~0.1.1"
+
+workerize-loader@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/workerize-loader/-/workerize-loader-1.1.0.tgz#d3a634390dcb685cc1ee292cd1fffeef0a646044"
+  integrity sha512-cU2jPVE3AzzVxOonBe9lCCO//qwE9s/K4a9njFVRLueznzNDNND5vGHVorGuzK6xvamdDOZ9+g7CPIc7QKzucQ==
+  dependencies:
+    loader-utils "^1.2.3"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"

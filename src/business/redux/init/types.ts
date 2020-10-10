@@ -38,16 +38,16 @@ export interface InitModel {
   initSuccess: boolean;
 }
 
-export const localStorageInitState:LocalStorageModel = {
+export const localStorageInitState: LocalStorageModel = {
   storeId: 0,
   userId: 0,
   deviceId: '',
   authToken: DEFAULT_AUTH_TOKEN,
   mode: MODES.LIGHT_CLASS,
   theme: THEMES.DEFAULT,
-}
+};
 
-export const INIT_STATE:InitModel = {
+export const INIT_STATE: InitModel = {
   localStorage: localStorageInitState,
   initSuccess: false,
-}
+};

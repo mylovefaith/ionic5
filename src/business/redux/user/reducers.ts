@@ -2,7 +2,7 @@ import { UserModel, SET_USER, CLEAN_USER, USER_INIT_STATE } from './types';
 import { AnyActionType } from '../types';
 import { LOGIN_SUCCESS } from '../auth/types';
 
-export default function(state:UserModel = USER_INIT_STATE, action: AnyActionType):UserModel {
+export default function(state: UserModel = USER_INIT_STATE, action: AnyActionType): UserModel {
   switch (action.type) {
     case SET_USER:
       return action.user;

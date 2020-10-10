@@ -1,12 +1,6 @@
 import { Dispatch } from 'redux';
 
-import {
-  LOGGING_IN,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGOUT_SUCCESS,
-  LoginResponseType,
-} from './types';
+import { LOGGING_IN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS, LoginResponseType } from './types';
 import { routerTypes } from '../router';
 import { AnyActionType } from '../types';
 import { ROUTES } from '../../enums';
@@ -28,7 +22,7 @@ export function login({ email, password }: { email: string; password: string }) 
           email: 'mylovefaith@gmail.com',
           firstName: 'Peter',
           lastName: 'Yoon',
-        }
+        },
       };
 
       await localStorage.setAuthToken(fakeResponse.authToken);

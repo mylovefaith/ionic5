@@ -19,6 +19,7 @@
     "android": "^0.0.8",
     "capacitor": "^0.5.5",
     "color": "^3.1.2",
+    "comlink": "^4.2.0",
     "date-fns": "^2.6.0",
     "formik": "^2.1.4",
     "ionicons": "^5.0.0",
@@ -34,6 +35,8 @@
     "redux-devtools": "^3.5.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
+    "worker-plugin": "^4.0.2",
+    "workerize-loader": "^1.1.0",
     "yup": "^0.28.3"
   },
   "scripts": {
@@ -42,7 +45,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{tx,js,tsx}\"",
-    "format": "prettier --config .prettierrc --write \"src/**/*.{tx,js,tsx,scss,json}\"",
+    "format": "prettier --config .prettierrc --write \"src/**/*.{ts,tx,js,tsx,scss,json}\"",
     "clean-start": "rm -rf ./node_modules && yarn install && watchman watch-del-all",
     "android": "ionic capacitor run android -l --address=0.0.0.0",
     "ios": "ionic capacitor run ios -l",

@@ -36,7 +36,7 @@ async function fetchStore(dispatch) {
   dispatch({
     type: SET_USER,
     user: response.user || USER_INIT_STATE,
-  })
+  });
 
   dispatch({
     type: FETCH_STORE_SUCCESS,
@@ -46,14 +46,17 @@ async function fetchStore(dispatch) {
 
 export function loadApp() {
   return async (dispatch: Dispatch<AnyActionType>, getState: () => AppModel) => {
-    dispatch({ 
-      type: LOADING, loadingText: 'Initializing App...' });
+    dispatch({
+      type: LOADING,
+      loadingText: 'Initializing App...',
+    });
 
     // Load LOCAL STORAGE
     await loadStorage(dispatch);
 
     // Load Theme
     const { init } = getState();
+
     restoreTheme(init.localStorage);
 
     // Fetching initial store

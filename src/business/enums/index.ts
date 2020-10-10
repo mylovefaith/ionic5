@@ -4,4 +4,4 @@ import { DEFAULT_AUTH_TOKEN } from './auth';
 import * as THEMES from './themes';
 import * as MODES from './modes';
 
-export { API, ROUTES, DEFAULT_AUTH_TOKEN, THEMES, MODES }
+export { API, ROUTES, DEFAULT_AUTH_TOKEN, THEMES, MODES };

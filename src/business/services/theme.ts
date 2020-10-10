@@ -8,11 +8,11 @@ const { DEFAULT, AUTUMN, NIGHT, NEON } = THEMES;
 export function switchDarkMode(isDark) {
   const { classList } = document.body;
 
-  if(isDark) {
-    classList.remove(LIGHT_CLASS)
+  if (isDark) {
+    classList.remove(LIGHT_CLASS);
     classList.add(DARK_CLASS);
   } else {
-    classList.remove(DARK_CLASS)
+    classList.remove(DARK_CLASS);
     classList.add(LIGHT_CLASS);
   }
 
@@ -23,9 +23,8 @@ export function switchDarkMode(isDark) {
 export function switchTheme(theme) {
   const cssText = theme === DEFAULT ? '' : CSSTextGenerator(theme);
 
-  const rootEl = document.getElementById("root");
-  if(rootEl)
-    rootEl.style.cssText = cssText;
+  const rootEl = document.getElementById('root');
+  if (rootEl) rootEl.style.cssText = cssText;
 
   // TODO: Store the saved theme to local storage
   setStorageItem('theme', theme);
@@ -41,7 +40,7 @@ export const themes = {
     danger: '#ff4961',
     dark: '#222428',
     medium: '#989aa2',
-    light: '#f4f5f8'
+    light: '#f4f5f8',
   },
   [AUTUMN]: {
     primary: '#F78154',
@@ -49,7 +48,7 @@ export const themes = {
     tertiary: '#B4436C',
     light: '#FDE8DF',
     medium: '#FCD0A2',
-    dark: '#B89876'
+    dark: '#B89876',
   },
   [NIGHT]: {
     primary: '#8CBA80',
@@ -57,7 +56,7 @@ export const themes = {
     tertiary: '#FE5F55',
     medium: '#BCC2C7',
     dark: '#F7F7FF',
-    light: '#495867'
+    light: '#495867',
   },
   [NEON]: {
     primary: '#39BFBD',
@@ -65,18 +64,18 @@ export const themes = {
     tertiary: '#FF5E79',
     light: '#F4EDF2',
     medium: '#B682A5',
-    dark: '#34162A'
-  }
+    dark: '#34162A',
+  },
 };
 
 function contrast(color, ratio = 0.8) {
-  color = Color(color); 
+  color = Color(color);
   return color.luminosity() > 0.5 ? color.darken(ratio) : color.lighten(ratio);
 }
 
 function CSSTextGenerator(key) {
   const newColorset = themes[key];
-  if(!newColorset) return '';
+  if (!newColorset) return '';
 
   const colors = { ...themes[DEFAULT], ...newColorset };
   const { primary, secondary, tertiary, success, warning, danger, dark, medium, light } = colors;
@@ -146,5 +145,4 @@ function CSSTextGenerator(key) {
     --ion-color-light-contrast-rgb: 0,0,0;
     --ion-color-light-shade: ${Color(light).darken(shadeRatio)};
     --ion-color-light-tint: ${Color(light).lighten(tintRatio)};`;
-
 }

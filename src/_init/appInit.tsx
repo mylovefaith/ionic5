@@ -35,7 +35,7 @@ const AppInit: React.FC<AppInitProps> = props => {
 
   return (
     <>
-      <IonLoading isOpen={isLoading} message={loadingText} />
+      {isLoading && <IonLoading isOpen={true} message={loadingText} />}
       {initSuccess && <Router />}
     </>
   );
